@@ -151,22 +151,25 @@
     el.addEventListener("mouseleave", () => { el.style.transform = ""; });
   });
 
-  /* ---------- Planevia phone screenshot rotator ---------- */
-  const phone = document.getElementById("planeviaPhone");
-  const shot = document.getElementById("planeviaShot");
-  if (phone && shot && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const shots = (phone.getAttribute("data-shots") || "").split(",").filter(Boolean);
-    if (shots.length > 1) {
+  /* ---------- Phone screenshot rotators (Planevia, RaphyCar...) ---------- */
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".phone[data-shots]").forEach((phone, idx) => {
+      const shot = phone.querySelector("img");
+      const shots = (phone.getAttribute("data-shots") || "").split(",").filter(Boolean);
+      if (!shot || shots.length < 2) return;
       shots.forEach((s) => { const im = new Image(); im.src = s; }); // preload
       let i = 0;
-      setInterval(() => {
-        i = (i + 1) % shots.length;
-        shot.style.animation = "none";
-        void shot.offsetWidth; // reflow to restart animation
-        shot.style.animation = "";
-        shot.src = shots[i];
-      }, 2800);
-    }
+      // offset start so the two phones don't switch in sync
+      setTimeout(() => {
+        setInterval(() => {
+          i = (i + 1) % shots.length;
+          shot.style.animation = "none";
+          void shot.offsetWidth; // reflow to restart animation
+          shot.style.animation = "";
+          shot.src = shots[i];
+        }, 2800);
+      }, idx * 1400);
+    });
   }
 
   /* ---------- Contact form ---------- */

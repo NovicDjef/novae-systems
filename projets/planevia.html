@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Planevia — Plateforme SaaS tout-en-un pour spas et cliniques, avec app mobile iOS & Android. Étude de cas par NOVÆ Systems." />
+  <title>Planevia — Logiciel de gestion pour spas & cliniques · NOVÆ Systems</title>
+  <link rel="icon" href="../assets/planevia/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+  <style>
+    :root{--accent:#16c4b0;--accent-grad:linear-gradient(120deg,#2fe0c2,#1aa0c4);--accent-soft:rgba(47,224,194,.18)}
+  </style>
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="preloader__core"><div class="preloader__ring"></div><div class="preloader__ring"></div><div class="preloader__ring"></div><span class="preloader__label">PLAN</span></div>
+    <div class="preloader__bar"><span></span></div>
+    <p class="preloader__pct" id="preloaderPct">0%</p>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="noise"></div>
+
+  <header class="nav is-scrolled" id="nav">
+    <a href="../index.html" class="nav__logo"><span class="nav__logo-mark">◈</span><span class="nav__logo-text">NOVÆ<small>SYSTEMS</small></span></a>
+    <nav class="nav__links">
+      <a href="../index.html#solutions">Solutions</a>
+      <a href="raphycar.html">RaphyCar</a>
+      <a href="../index.html#contact" class="nav__cta">Contact</a>
+    </nav>
+  </header>
+  <a href="../index.html#solutions" class="pd-back">← Retour aux projets</a>
+
+  <main>
+    <!-- HERO -->
+    <section class="pd-hero">
+      <div>
+        <span class="pd-hero__chip"><b></b> Étude de cas · SaaS &amp; App mobile</span>
+        <div class="pd-hero__logo"><img src="../assets/planevia/icon.png" alt="Logo Planevia" /><h1>Planevia</h1></div>
+        <p class="pd-hero__tagline">Moins de paperasse. Plus de clients.</p>
+        <p class="pd-hero__desc">La plateforme tout-en-un des spas et cliniques du Québec : réservation en ligne 24/7, dossiers clients, suivi des employés, comptabilité jusqu'à la paie et notes cliniques dictées par intelligence artificielle.</p>
+        <div class="pd-hero__meta">
+          <div><b>12+</b><span>MODULES PRO</span></div>
+          <div><b>1863</b><span>CLIENTS GÉRÉS</span></div>
+          <div><b>iOS · Android · Web</b><span>DISPONIBLE SUR</span></div>
+        </div>
+        <div class="pd-hero__actions">
+          <a href="#demo" class="btn btn--primary">Voir une réservation en direct ↓</a>
+          <a href="https://planevia.ca" target="_blank" rel="noopener" class="btn btn--ghost">Visiter planevia.ca</a>
+        </div>
+      </div>
+      <div class="pd-hero__visual">
+        <div class="phone" data-shots="../assets/planevia/1.png,../assets/planevia/2.png,../assets/planevia/4.png,../assets/planevia/10.png">
+          <div class="phone__notch"></div>
+          <div class="phone__screen phone__screen--img"><img src="../assets/planevia/1.png" alt="Application Planevia" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE BOOKING DEMO -->
+    <section class="pd-section" id="demo">
+      <div class="pd-section__head">
+        <span class="pd-section__tag">// Réservation en direct</span>
+        <h2 class="pd-section__title">Un client prend rendez-vous, en temps réel</h2>
+        <p class="pd-section__lead">L'expérience vécue côté client : il choisit un soin, renseigne ses informations et obtient sa confirmation immédiate.</p>
+      </div>
+      <div class="demo">
+        <div class="demo__phone">
+          <div class="demo__notch"></div>
+          <div class="demo__screen">
+            <!-- Écran 1 : choix du soin -->
+            <div class="demo-screen is-active" data-screen="list">
+              <div class="mui-head">Prendre rendez-vous</div>
+              <div class="mui-sub">Spa Renaissance · Lun. 8 juin</div>
+              <div class="mui-card">
+                <div class="mui-photo" style="background:linear-gradient(150deg,#0c5b63,#0a2c3a);display:flex;align-items:flex-end;padding:12px;color:#fff;font-weight:700">Massage Deep-tissu</div>
+                <div class="mui-card__b">
+                  <span class="mui-price">90 $</span>
+                  <div class="mui-brand">80 minutes</div>
+                  <div class="mui-title">Novic M. · Massothérapeute</div>
+                  <div class="mui-row">🕘 Lundi 8 juin · 09:00 · disponible</div>
+                  <div class="mui-btn" data-tap="reserve">Réserver ce créneau</div>
+                </div>
+              </div>
+            </div>
+            <!-- Écran 2 : formulaire -->
+            <div class="demo-screen" data-screen="form">
+              <div class="mui-head">Vos informations</div>
+              <div class="mui-sub">Massage Deep-tissu · 80 min · 90 $</div>
+              <div class="mui-label">Nom complet</div>
+              <div class="mui-field">👤 <b class="type" data-text="Sarah-Maude T."></b></div>
+              <div class="mui-label">Téléphone</div>
+              <div class="mui-field">📞 <b class="type" data-text="+1 418 409-4319"></b></div>
+              <div class="mui-label">Courriel</div>
+              <div class="mui-field">✉️ <b class="type" data-text="sarah.maude@gmail.com"></b></div>
+              <div class="mui-label">Note (optionnel)</div>
+              <div class="mui-field">📝 <b class="type" data-text="Tensions au dos"></b></div>
+              <div class="mui-btn" data-tap="confirm" style="margin-top:auto">Confirmer le rendez-vous</div>
+            </div>
+            <!-- Écran 3 : confirmation -->
+            <div class="demo-screen" data-screen="done">
+              <div class="mui-success">
+                <div class="mui-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                <h4>Rendez-vous confirmé !</h4>
+                <p>Lundi 8 juin · 09:00<br>Massage Deep-tissu avec Novic M.</p>
+              </div>
+            </div>
+          </div>
+          <div class="demo__cursor"><svg viewBox="0 0 24 24" fill="#fff"><path d="M5 2l14 7-6 2-2 6z"/></svg></div>
+        </div>
+        <div class="demo__steps">
+          <h3>Un parcours fluide, zéro friction</h3>
+          <p>Vos clients réservent eux-mêmes, 24h/24, et vous recevez un rappel automatique. Moins de no-shows, plus de revenus.</p>
+          <ul class="demo__list">
+            <li><span class="dot">1</span> Le client choisit un soin &amp; un créneau</li>
+            <li><span class="dot">2</span> Il renseigne ses informations</li>
+            <li><span class="dot">3</span> Rendez-vous confirmé instantanément</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="pd-section">
+      <div class="pd-section__head">
+        <span class="pd-section__tag">// Fonctionnalités</span>
+        <h2 class="pd-section__title">Une suite complète de gestion</h2>
+      </div>
+      <div class="pd-feats">
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><h3>Calendrier &amp; réservations</h3><p>Agenda multi-praticiens, réservation en ligne 24/7 et rappels SMS/courriel automatiques.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3>Dossiers clients</h3><p>Historique, profil, antécédents et suivi clinique — 1863 clients gérés au quotidien.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h3>Notes cliniques par IA</h3><p>Dictez votre note, l'IA la transcrit et la structure (SOAP, DAP, GIRP, narratif).</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg></div><h3>Comptabilité &amp; paie</h3><p>Reçus d'assurance, revenus, forfaits et cures, jusqu'à la paie des employés.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87"/></svg></div><h3>Équipe &amp; assignations</h3><p>Gestion des employés, rôles, calendriers et assignation des clients aux praticiens.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></div><h3>Messagerie &amp; téléconsultation</h3><p>Communication intégrée, plans de traitement, prescriptions et téléconsultation.</p></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="pd-section">
+      <div class="pd-section__head">
+        <span class="pd-section__tag">// Galerie</span>
+        <h2 class="pd-section__title">L'application en images</h2>
+      </div>
+      <div class="pd-gallery">
+        <div class="pd-shot"><img src="../assets/planevia/1.png" alt="Tableau de bord" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/planevia/2.png" alt="Calendrier des rendez-vous" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/planevia/4.png" alt="Dossier client" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/planevia/8.png" alt="Note vocale IA" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/planevia/9.png" alt="Liste des clients" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/planevia/10.png" alt="Cures et forfaits" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/planevia/7.png" alt="Assignations" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/planevia/3.png" alt="Menu de navigation" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <!-- TECH -->
+    <section class="pd-section">
+      <div class="pd-section__head">
+        <span class="pd-section__tag">// Stack technique</span>
+        <h2 class="pd-section__title">Construit pour durer</h2>
+      </div>
+      <div class="pd-tech">
+        <span>React Native</span><span>Expo</span><span>Node.js</span><span>API REST</span><span>PostgreSQL</span><span>IA / LLM</span><span>Web</span><span>App Store</span>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pd-cta">
+      <h2>Un logiciel métier sur mesure ?</h2>
+      <p>Comme Planevia, on conçoit des plateformes SaaS complètes avec application mobile — de l'idée jusqu'à l'App Store.</p>
+      <a href="../index.html#contact" class="btn btn--primary">Démarrer mon projet</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand"><span class="nav__logo-mark">◈</span> NOVÆ SYSTEMS</div>
+    <p>© 2026 NOVÆ Systems — Développement logiciel · Canada.</p>
+    <div class="footer__socials"><a href="../index.html#solutions">Projets</a><a href="../index.html#contact">Contact</a></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/scene.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/project.js"></script>
+</body>
+</html>

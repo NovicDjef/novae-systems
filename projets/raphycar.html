@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RaphyCar — Marketplace SaaS web & mobile de location de voitures. Étude de cas par NOVÆ Systems." />
+  <title>RaphyCar — Marketplace de location de voitures · NOVÆ Systems</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23120708'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23ff4b38' font-family='Arial'%3E%E2%97%88%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+  <style>
+    :root{--accent:#ff4b38;--accent-grad:linear-gradient(120deg,#ff6a4d,#ff2b78);--accent-soft:rgba(255,75,56,.18)}
+  </style>
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="preloader__core"><div class="preloader__ring"></div><div class="preloader__ring"></div><div class="preloader__ring"></div><span class="preloader__label">RAPHY</span></div>
+    <div class="preloader__bar"><span></span></div>
+    <p class="preloader__pct" id="preloaderPct">0%</p>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="noise"></div>
+
+  <header class="nav is-scrolled" id="nav">
+    <a href="../index.html" class="nav__logo"><span class="nav__logo-mark">◈</span><span class="nav__logo-text">NOVÆ<small>SYSTEMS</small></span></a>
+    <nav class="nav__links">
+      <a href="../index.html#solutions">Solutions</a>
+      <a href="planevia.html">Planevia</a>
+      <a href="../index.html#contact" class="nav__cta">Contact</a>
+    </nav>
+  </header>
+  <a href="../index.html#solutions" class="pd-back">← Retour aux projets</a>
+
+  <main>
+    <!-- HERO -->
+    <section class="pd-hero">
+      <div>
+        <span class="pd-hero__chip"><b></b> Étude de cas · Marketplace SaaS</span>
+        <div class="pd-hero__logo"><h1>RaphyCar</h1></div>
+        <p class="pd-hero__tagline">La location de voiture, en quelques clics.</p>
+        <p class="pd-hero__desc">Une marketplace web &amp; mobile complète où agences et particuliers publient leurs véhicules via des forfaits d'abonnement, et où les clients recherchent, comparent et réservent en ligne — paiement Mobile&nbsp;Money et carte bancaire.</p>
+        <div class="pd-hero__meta">
+          <div><b>2</b><span>PLATEFORMES</span></div>
+          <div><b>4</b><span>FORFAITS PRO</span></div>
+          <div><b>iOS · Android · Web</b><span>DISPONIBLE SUR</span></div>
+        </div>
+        <div class="pd-hero__actions">
+          <a href="#demo" class="btn btn--primary">Voir une réservation en direct ↓</a>
+          <a href="../index.html#contact" class="btn btn--ghost">Un projet similaire ?</a>
+        </div>
+      </div>
+      <div class="pd-hero__visual">
+        <div class="phone" data-shots="../assets/raphycar/home.png,../assets/raphycar/vehicle-detail.png,../assets/raphycar/dashboard.png,../assets/raphycar/subscription.png">
+          <div class="phone__notch"></div>
+          <div class="phone__screen phone__screen--img"><img src="../assets/raphycar/home.png" alt="Application RaphyCar" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE BOOKING DEMO -->
+    <section class="pd-section" id="demo">
+      <div class="pd-section__head">
+        <span class="pd-section__tag">// Réservation en direct</span>
+        <h2 class="pd-section__title">Un client réserve, en temps réel</h2>
+        <p class="pd-section__lead">Voici exactement ce que vit un utilisateur : il choisit une voiture, remplit sa demande et reçoit sa confirmation — sans friction.</p>
+      </div>
+      <div class="demo">
+        <div class="demo__phone">
+          <div class="demo__notch"></div>
+          <div class="demo__screen">
+            <!-- Écran 1 : liste -->
+            <div class="demo-screen is-active" data-screen="list">
+              <div class="mui-head">Voitures disponibles</div>
+              <div class="mui-sub">Yaoundé · aujourd'hui</div>
+              <div class="mui-card">
+                <div class="mui-photo" style="background-image:url('../assets/raphycar/vehicle-detail.png');background-position:top center"></div>
+                <div class="mui-card__b">
+                  <span class="mui-price">55 000 F<small>/j</small></span>
+                  <div class="mui-brand">Toyota</div>
+                  <div class="mui-title">Corolla 2023</div>
+                  <div class="mui-row"><span class="mui-stars">★★★★★</span> 4.8 (127) · ⛽ Essence · 5 places</div>
+                  <div class="mui-btn" data-tap="reserve">Réserver</div>
+                </div>
+              </div>
+            </div>
+            <!-- Écran 2 : formulaire -->
+            <div class="demo-screen" data-screen="form">
+              <div class="mui-head">Réservation</div>
+              <div class="mui-sub">Toyota Corolla · 55 000 FCFA / jour</div>
+              <div class="mui-label">Nom complet</div>
+              <div class="mui-field">👤 <b class="type" data-text="Marie Dubois"></b></div>
+              <div class="mui-label">Email</div>
+              <div class="mui-field">✉️ <b class="type" data-text="marie.dubois@gmail.com"></b></div>
+              <div class="mui-label">Ville de départ</div>
+              <div class="mui-field">📍 <b class="type" data-text="Yaoundé"></b></div>
+              <div class="mui-label">Destination</div>
+              <div class="mui-field">🚩 <b class="type" data-text="Douala"></b></div>
+              <div class="mui-btn" data-tap="confirm" style="margin-top:auto">Envoyer la réservation</div>
+            </div>
+            <!-- Écran 3 : confirmation -->
+            <div class="demo-screen" data-screen="done">
+              <div class="mui-success">
+                <div class="mui-check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+                <h4>Réservation confirmée !</h4>
+                <p>Toyota Corolla 2023<br>Yaoundé → Douala · 55 000 FCFA</p>
+              </div>
+            </div>
+          </div>
+          <div class="demo__cursor"><svg viewBox="0 0 24 24" fill="#fff"><path d="M5 2l14 7-6 2-2 6z"/></svg></div>
+        </div>
+        <div class="demo__steps">
+          <h3>De la recherche à la confirmation</h3>
+          <p>Une expérience pensée pour convertir : claire, rapide et rassurante à chaque étape.</p>
+          <ul class="demo__list">
+            <li><span class="dot">1</span> Le client choisit un véhicule</li>
+            <li><span class="dot">2</span> Il remplit sa réservation</li>
+            <li><span class="dot">3</span> Réservation confirmée instantanément</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="pd-section">
+      <div class="pd-section__head">
+        <span class="pd-section__tag">// Fonctionnalités</span>
+        <h2 class="pd-section__title">Tout ce qu'une marketplace exige</h2>
+      </div>
+      <div class="pd-feats">
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3>Double espace</h3><p>Comptes Agence / Entreprise et Particulier, avec parcours et droits adaptés.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13l2-6h14l2 6M5 13h14v5H5zM7 18v2M17 18v2"/></svg></div><h3>Gestion des véhicules</h3><p>Publication, photos, prix/jour, disponibilité, activation et statistiques.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></div><h3>Forfaits d'abonnement</h3><p>Solo, Pro, Business, Enterprise — limites de véhicules et facturation mensuelle.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></div><h3>Messagerie intégrée</h3><p>Les clients discutent directement avec les propriétaires avant de réserver.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></svg></div><h3>Paiement Mobile Money</h3><p>MTN, Orange et carte bancaire (Visa, Mastercard) intégrés au tunnel.</p></div>
+        <div class="pd-feat"><div class="pd-feat__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Recherche &amp; filtres</h3><p>Par type, marque, prix et disponibilité, avec favoris et historique.</p></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="pd-section">
+      <div class="pd-section__head">
+        <span class="pd-section__tag">// Galerie</span>
+        <h2 class="pd-section__title">L'application en images</h2>
+      </div>
+      <div class="pd-gallery">
+        <div class="pd-shot"><img src="../assets/raphycar/home.png" alt="Accueil — voitures disponibles" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/vehicle-detail.png" alt="Détail d'un véhicule" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/reservation.png" alt="Formulaire de réservation" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/dashboard.png" alt="Tableau de bord agence" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/add-vehicle.png" alt="Ajouter un véhicule" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/subscription.png" alt="Packs d'abonnement" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/account-type.png" alt="Type de compte" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/history.png" alt="Historique des locations" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/profile.png" alt="Profil utilisateur" loading="lazy" /></div>
+        <div class="pd-shot"><img src="../assets/raphycar/login.png" alt="Connexion" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <!-- TECH -->
+    <section class="pd-section">
+      <div class="pd-section__head">
+        <span class="pd-section__tag">// Stack technique</span>
+        <h2 class="pd-section__title">Construit pour durer</h2>
+      </div>
+      <div class="pd-tech">
+        <span>React Native</span><span>Expo</span><span>Node.js</span><span>API REST</span><span>PostgreSQL</span><span>Mobile Money</span><span>Stripe</span><span>Web</span>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pd-cta">
+      <h2>Vous avez une idée de marketplace ?</h2>
+      <p>De la conception au lancement sur l'App Store et Google Play, on construit votre produit comme on a construit RaphyCar.</p>
+      <a href="../index.html#contact" class="btn btn--primary">Démarrer mon projet</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand"><span class="nav__logo-mark">◈</span> NOVÆ SYSTEMS</div>
+    <p>© 2026 NOVÆ Systems — Développement logiciel · Canada.</p>
+    <div class="footer__socials"><a href="../index.html#solutions">Projets</a><a href="../index.html#contact">Contact</a></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/scene.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/project.js"></script>
+</body>
+</html>

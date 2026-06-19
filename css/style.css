@@ -218,6 +218,20 @@ body::before{
 .ui-voice{margin-top:auto;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.95);border-radius:14px;padding:11px 12px;font-size:11px;color:#0a2c3a;font-weight:600}
 .ui-voice__dot{width:8px;height:8px;border-radius:50%;background:#7c3aed}
 .ui-mic{margin-left:auto;width:26px;height:26px;border-radius:50%;background:#0c8;background:linear-gradient(135deg,#2fe0c2,#1aa0c4);box-shadow:0 0 14px rgba(47,224,194,.6)}
+/* alternate layout (visual on left) */
+.feature--alt .feature__content{order:2}
+.feature--alt .feature__visual{order:1}
+.feature--alt::before{background:radial-gradient(60% 80% at 10% 10%,rgba(255,75,56,.14),transparent 60%),radial-gradient(50% 70% at 100% 100%,rgba(255,43,120,.12),transparent 60%)}
+
+/* red accent variant (RaphyCar) */
+.feature--red .feature__chip{background:rgba(255,75,56,.1);border-color:rgba(255,75,56,.3);color:#ff7a6b}
+.feature--red .feature__dot{background:#ff4b38;box-shadow:0 0 12px #ff4b38}
+.feature--red .feature__tagline{background:linear-gradient(120deg,#ff6a4d,#ff2b78);-webkit-background-clip:text;background-clip:text;color:transparent}
+.feature--red .feature__list li::before{border-color:#ff5b48}
+.feature--red .feature__tags span{background:rgba(255,75,56,.1);border-color:rgba(255,75,56,.28);color:#ff9a8e}
+.feature--red .phone{box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 60px rgba(255,75,56,.22)}
+.feature--red .btn--primary{background:linear-gradient(120deg,#ff5b48,#ff2b78);color:#fff}
+
 /* real screenshot inside the phone */
 .phone__screen--img{padding:0;background:#fff}
 .phone__screen--img img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;animation:shotFade .6s ease}
