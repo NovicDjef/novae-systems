@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" data-i18n="meta.desc" content="NOVÆ Systems — Agence de développement logiciel au Canada. Solutions sur mesure, applications mobiles et plateformes SaaS du futur." />
+  <title>NOVÆ Systems — Architectes du logiciel de demain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Préchargeur -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__core">
+      <div class="preloader__ring"></div>
+      <div class="preloader__ring"></div>
+      <div class="preloader__ring"></div>
+      <span class="preloader__label">NOVÆ</span>
+    </div>
+    <div class="preloader__bar"><span></span></div>
+    <p class="preloader__pct" id="preloaderPct">0%</p>
+  </div>
+
+  <!-- Curseur personnalisé -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Canvas 3D Three.js -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="noise"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo">
+      <span class="nav__logo-mark">◈</span>
+      <span class="nav__logo-text">NOVÆ<small>SYSTEMS</small></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
+      <a href="#process" data-i18n="nav.process">Processus</a>
+      <a href="#about" data-i18n="nav.about">À propos</a>
+      <a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang-switch" id="langSwitch" aria-label="Changer de langue">
+        <span class="lang-switch__opt is-active" data-lang="fr">FR</span>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__opt" data-lang="en">EN</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+        <div class="hero__badge reveal">
+          <span class="hero__badge-dot"></span>
+          <span data-i18n="hero.badge">Studio logiciel basé au Canada 🇨🇦</span>
+        </div>
+        <h1 class="hero__title reveal">
+          <span class="hero__line" data-i18n="hero.title1">Nous codons le</span>
+          <span class="hero__line hero__line--accent" data-i18n="hero.title2">futur du logiciel</span>
+        </h1>
+        <p class="hero__sub reveal" data-i18n="hero.sub">
+          Applications mobiles, plateformes SaaS et systèmes intelligents.
+          Des solutions déjà déployées pour des entreprises et des particuliers.
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#solutions" class="btn btn--primary" data-i18n="hero.cta1">Découvrir nos solutions</a>
+          <a href="#contact" class="btn btn--ghost" data-i18n="hero.cta2">Démarrer un projet</a>
+        </div>
+        <div class="hero__stats reveal">
+          <div class="hero__stat"><b data-count="40">0</b><span data-i18n="hero.stat1">Projets livrés</span></div>
+          <div class="hero__stat"><b data-count="12">0</b><span data-i18n="hero.stat2">Solutions actives</span></div>
+          <div class="hero__stat"><b data-count="99" data-suffix="%">0</b><span data-i18n="hero.stat3">Clients satisfaits</span></div>
+        </div>
+      </div>
+      <div class="hero__scroll"><span data-i18n="hero.scroll">Défiler</span><i></i></div>
+    </section>
+
+    <!-- BANDEAU TECH -->
+    <div class="marquee">
+      <div class="marquee__track">
+        <span>React</span><span>•</span><span>Flutter</span><span>•</span><span>Node.js</span><span>•</span><span>Swift</span><span>•</span><span>Kotlin</span><span>•</span><span>Python</span><span>•</span><span>TypeScript</span><span>•</span><span>AWS</span><span>•</span><span>Next.js</span><span>•</span><span>PostgreSQL</span><span>•</span><span>Docker</span><span>•</span><span>AI / LLM</span><span>•</span>
+        <span>React</span><span>•</span><span>Flutter</span><span>•</span><span>Node.js</span><span>•</span><span>Swift</span><span>•</span><span>Kotlin</span><span>•</span><span>Python</span><span>•</span><span>TypeScript</span><span>•</span><span>AWS</span><span>•</span><span>Next.js</span><span>•</span><span>PostgreSQL</span><span>•</span><span>Docker</span><span>•</span><span>AI / LLM</span><span>•</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="section__head reveal">
+        <span class="section__tag" data-i18n="services.tag">// Ce que nous faisons</span>
+        <h2 class="section__title" data-i18n="services.title">Une expertise complète</h2>
+        <p class="section__lead" data-i18n="services.lead">De l'idée au déploiement, nous concevons des produits numériques performants et évolutifs.</p>
+      </div>
+      <div class="services__grid">
+        <article class="card reveal" data-tilt>
+          <div class="card__icon">📱</div>
+          <h3 data-i18n="services.s1.title">Applications mobiles</h3>
+          <p data-i18n="services.s1.desc">Apps iOS &amp; Android natives et cross-platform, fluides et élégantes, pensées pour vos utilisateurs.</p>
+        </article>
+        <article class="card reveal" data-tilt>
+          <div class="card__icon">🌐</div>
+          <h3 data-i18n="services.s2.title">Plateformes web &amp; SaaS</h3>
+          <p data-i18n="services.s2.desc">Des applications web robustes, sécurisées et scalables, du tableau de bord au produit complet.</p>
+        </article>
+        <article class="card reveal" data-tilt>
+          <div class="card__icon">🤖</div>
+          <h3 data-i18n="services.s3.title">Intelligence artificielle</h3>
+          <p data-i18n="services.s3.desc">Intégration d'IA, agents intelligents et automatisation pour propulser votre activité.</p>
+        </article>
+        <article class="card reveal" data-tilt>
+          <div class="card__icon">⚙️</div>
+          <h3 data-i18n="services.s4.title">Logiciels sur mesure</h3>
+          <p data-i18n="services.s4.desc">Des outils internes et systèmes métier conçus précisément autour de vos processus.</p>
+        </article>
+        <article class="card reveal" data-tilt>
+          <div class="card__icon">☁️</div>
+          <h3 data-i18n="services.s5.title">Cloud &amp; DevOps</h3>
+          <p data-i18n="services.s5.desc">Architecture cloud, CI/CD et infrastructure fiable pour déployer en toute sérénité.</p>
+        </article>
+        <article class="card reveal" data-tilt>
+          <div class="card__icon">🎨</div>
+          <h3 data-i18n="services.s6.title">UX / UI Design</h3>
+          <p data-i18n="services.s6.desc">Des interfaces immersives et intuitives qui transforment vos visiteurs en clients.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SOLUTIONS / PORTFOLIO -->
+    <section class="section solutions" id="solutions">
+      <div class="section__head reveal">
+        <span class="section__tag" data-i18n="solutions.tag">// Nos réalisations</span>
+        <h2 class="section__title" data-i18n="solutions.title">Solutions déjà mises sur pied</h2>
+        <p class="section__lead" data-i18n="solutions.lead">Des produits réels, en production, utilisés au quotidien par des entreprises et des particuliers.</p>
+      </div>
+      <div class="solutions__grid">
+        <article class="project reveal">
+          <div class="project__visual project__visual--1"><span class="project__chip" data-i18n="solutions.p1.chip">App mobile</span></div>
+          <div class="project__body">
+            <h3 data-i18n="solutions.p1.title">FinPulse</h3>
+            <p data-i18n="solutions.p1.desc">Application de gestion financière personnelle avec catégorisation automatique et budgets intelligents.</p>
+            <div class="project__tags"><span>Flutter</span><span>Node.js</span><span>IA</span></div>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project__visual project__visual--2"><span class="project__chip" data-i18n="solutions.p2.chip">Plateforme SaaS</span></div>
+          <div class="project__body">
+            <h3 data-i18n="solutions.p2.title">LogiFlow</h3>
+            <p data-i18n="solutions.p2.desc">Plateforme de gestion logistique et de suivi de flotte en temps réel pour PME.</p>
+            <div class="project__tags"><span>React</span><span>PostgreSQL</span><span>AWS</span></div>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project__visual project__visual--3"><span class="project__chip" data-i18n="solutions.p3.chip">E-commerce</span></div>
+          <div class="project__body">
+            <h3 data-i18n="solutions.p3.title">MapleStore</h3>
+            <p data-i18n="solutions.p3.desc">Marketplace multi-vendeurs avec paiements sécurisés et tableau de bord analytique.</p>
+            <div class="project__tags"><span>Next.js</span><span>Stripe</span><span>Docker</span></div>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project__visual project__visual--4"><span class="project__chip" data-i18n="solutions.p4.chip">Santé</span></div>
+          <div class="project__body">
+            <h3 data-i18n="solutions.p4.title">CareLink</h3>
+            <p data-i18n="solutions.p4.desc">Application de téléconsultation et de suivi patient sécurisée et conforme.</p>
+            <div class="project__tags"><span>Swift</span><span>Kotlin</span><span>FHIR</span></div>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project__visual project__visual--5"><span class="project__chip" data-i18n="solutions.p5.chip">IA / Automatisation</span></div>
+          <div class="project__body">
+            <h3 data-i18n="solutions.p5.title">NovaBot</h3>
+            <p data-i18n="solutions.p5.desc">Agent conversationnel d'entreprise connecté à vos données pour automatiser le support.</p>
+            <div class="project__tags"><span>Python</span><span>LLM</span><span>RAG</span></div>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project__visual project__visual--6"><span class="project__chip" data-i18n="solutions.p6.chip">Productivité</span></div>
+          <div class="project__body">
+            <h3 data-i18n="solutions.p6.title">TaskOrbit</h3>
+            <p data-i18n="solutions.p6.desc">Outil collaboratif de gestion de projets avec automatisations et tableaux temps réel.</p>
+            <div class="project__tags"><span>React</span><span>WebSocket</span><span>Redis</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESSUS -->
+    <section class="section process" id="process">
+      <div class="section__head reveal">
+        <span class="section__tag" data-i18n="process.tag">// Notre méthode</span>
+        <h2 class="section__title" data-i18n="process.title">Du concept au lancement</h2>
+      </div>
+      <div class="process__timeline">
+        <div class="step reveal"><span class="step__num">01</span><h3 data-i18n="process.s1.title">Découverte</h3><p data-i18n="process.s1.desc">On analyse vos besoins, vos utilisateurs et vos objectifs business.</p></div>
+        <div class="step reveal"><span class="step__num">02</span><h3 data-i18n="process.s2.title">Conception</h3><p data-i18n="process.s2.desc">Maquettes, architecture et prototype interactif validés avec vous.</p></div>
+        <div class="step reveal"><span class="step__num">03</span><h3 data-i18n="process.s3.title">Développement</h3><p data-i18n="process.s3.desc">Code propre, testé et livré par itérations rapides et transparentes.</p></div>
+        <div class="step reveal"><span class="step__num">04</span><h3 data-i18n="process.s4.title">Lancement &amp; suivi</h3><p data-i18n="process.s4.desc">Déploiement, monitoring et améliorations continues après mise en ligne.</p></div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section class="section about" id="about">
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <span class="section__tag" data-i18n="about.tag">// Qui sommes-nous</span>
+          <h2 class="section__title" data-i18n="about.title">Une entreprise canadienne, une vision mondiale</h2>
+          <p data-i18n="about.p1">NOVÆ Systems est un studio de développement logiciel légalement établi au Canada. Nous avons déjà conçu et déployé plusieurs solutions logicielles et applications mobiles pour des entreprises comme pour des particuliers.</p>
+          <p data-i18n="about.p2">Notre obsession : transformer des idées ambitieuses en produits numériques fiables, élégants et tournés vers l'avenir.</p>
+          <ul class="about__list">
+            <li data-i18n="about.l1">✦ Entreprise légalement enregistrée au Canada</li>
+            <li data-i18n="about.l2">✦ Plusieurs solutions déjà en production</li>
+            <li data-i18n="about.l3">✦ Expertise mobile, web, cloud &amp; IA</li>
+            <li data-i18n="about.l4">✦ Approche sur mesure, du concept au lancement</li>
+          </ul>
+        </div>
+        <div class="about__panel reveal">
+          <div class="hologram">
+            <div class="hologram__core">◈</div>
+            <div class="hologram__orbit"></div>
+            <div class="hologram__orbit"></div>
+            <div class="hologram__orbit"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="contact__inner reveal">
+        <span class="section__tag" data-i18n="contact.tag">// Parlons de votre projet</span>
+        <h2 class="section__title" data-i18n="contact.title">Prêt à bâtir le futur ?</h2>
+        <p class="section__lead" data-i18n="contact.lead">Décrivez-nous votre idée. On vous répond sous 24&nbsp;h.</p>
+        <form class="contact__form" id="contactForm">
+          <div class="field"><input type="text" name="name" required /><label data-i18n="contact.name">Nom complet</label></div>
+          <div class="field"><input type="email" name="email" required /><label data-i18n="contact.email">Adresse courriel</label></div>
+          <div class="field field--full"><textarea name="message" rows="4" required></textarea><label data-i18n="contact.msg">Votre projet</label></div>
+          <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.send">Envoyer le message</button>
+        </form>
+        <p class="contact__alt">novicmelataguia@gmail.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand"><span class="nav__logo-mark">◈</span> NOVÆ SYSTEMS</div>
+    <p data-i18n="footer.rights">© 2026 NOVÆ Systems — Développement logiciel · Canada. Tous droits réservés.</p>
+    <div class="footer__socials"><a href="#">LinkedIn</a><a href="#">GitHub</a><a href="#">X</a></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
