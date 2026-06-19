@@ -151,6 +151,24 @@
     el.addEventListener("mouseleave", () => { el.style.transform = ""; });
   });
 
+  /* ---------- Planevia phone screenshot rotator ---------- */
+  const phone = document.getElementById("planeviaPhone");
+  const shot = document.getElementById("planeviaShot");
+  if (phone && shot && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const shots = (phone.getAttribute("data-shots") || "").split(",").filter(Boolean);
+    if (shots.length > 1) {
+      shots.forEach((s) => { const im = new Image(); im.src = s; }); // preload
+      let i = 0;
+      setInterval(() => {
+        i = (i + 1) % shots.length;
+        shot.style.animation = "none";
+        void shot.offsetWidth; // reflow to restart animation
+        shot.style.animation = "";
+        shot.src = shots[i];
+      }, 2800);
+    }
+  }
+
   /* ---------- Contact form ---------- */
   const form = document.getElementById("contactForm");
   form && form.addEventListener("submit", (e) => {

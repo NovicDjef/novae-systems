@@ -6,6 +6,7 @@
   <meta name="description" data-i18n="meta.desc" content="NOVÆ Systems — Agence de développement logiciel au Canada. Solutions sur mesure, applications mobiles et plateformes SaaS du futur." />
   <title>NOVÆ Systems — Architectes du logiciel de demain</title>
 
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070a12'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%2300f0ff' font-family='Arial'%3E%E2%97%88%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -161,27 +162,29 @@
           </div>
         </div>
         <div class="feature__visual">
-          <div class="phone">
+          <div class="phone" id="planeviaPhone" data-shots="assets/planevia/1.png,assets/planevia/2.png,assets/planevia/4.png,assets/planevia/8.png,assets/planevia/10.png,assets/planevia/9.png">
             <div class="phone__notch"></div>
-            <div class="phone__screen">
-              <div class="ui-top"><span class="ui-hi" data-i18n="solutions.flag.ui.hi">Bonsoir, Novic 🌙</span><span class="ui-date" data-i18n="solutions.flag.ui.date">Lundi 8 juin 2026</span></div>
-              <div class="ui-stats">
-                <div class="ui-stat"><b>27</b><small data-i18n="solutions.flag.ui.emp">Employés</small></div>
-                <div class="ui-stat"><b>16</b><small data-i18n="solutions.flag.ui.serv">Services</small></div>
-                <div class="ui-stat"><b>12</b><small data-i18n="solutions.flag.ui.rdv">RDV aujourd'hui</small></div>
-              </div>
-              <span class="ui-label" data-i18n="solutions.flag.ui.quick">Accès rapide</span>
-              <div class="ui-grid">
-                <div class="ui-tile ui-tile--accent"><i></i><span data-i18n="solutions.flag.ui.clinic">Clinique</span></div>
-                <div class="ui-tile"><i></i><span data-i18n="solutions.flag.ui.cal">Calendrier</span></div>
-                <div class="ui-tile"><i></i><span data-i18n="solutions.flag.ui.files">Dossiers</span></div>
-                <div class="ui-tile"><i></i><span data-i18n="solutions.flag.ui.msg">Messages</span></div>
-              </div>
-              <div class="ui-voice"><span class="ui-voice__dot"></span><span data-i18n="solutions.flag.ui.voice">Note vocale IA · SOAP</span><span class="ui-mic"></span></div>
+            <div class="phone__screen phone__screen--img">
+              <img id="planeviaShot" src="assets/planevia/1.png" alt="Aperçu de l'application Planevia" />
             </div>
           </div>
         </div>
       </article>
+
+      <!-- Galerie de l'application -->
+      <div class="shots reveal">
+        <span class="shots__label" data-i18n="solutions.shots">Aperçu de l'application mobile Planevia</span>
+        <div class="shots__row">
+          <figure class="shot"><img src="assets/planevia/1.png" alt="Tableau de bord Planevia" loading="lazy" /></figure>
+          <figure class="shot"><img src="assets/planevia/2.png" alt="Calendrier des rendez-vous" loading="lazy" /></figure>
+          <figure class="shot"><img src="assets/planevia/4.png" alt="Dossier client" loading="lazy" /></figure>
+          <figure class="shot"><img src="assets/planevia/8.png" alt="Note vocale IA" loading="lazy" /></figure>
+          <figure class="shot"><img src="assets/planevia/9.png" alt="Liste des clients" loading="lazy" /></figure>
+          <figure class="shot"><img src="assets/planevia/10.png" alt="Cures et forfaits" loading="lazy" /></figure>
+          <figure class="shot"><img src="assets/planevia/7.png" alt="Assignations" loading="lazy" /></figure>
+          <figure class="shot"><img src="assets/planevia/3.png" alt="Menu de navigation" loading="lazy" /></figure>
+        </div>
+      </div>
 
       <!-- Autres réalisations -->
       <div class="solutions__grid">
