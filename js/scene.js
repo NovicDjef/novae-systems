@@ -39,8 +39,8 @@
     const g = c.getContext("2d");
     const grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
     grd.addColorStop(0, "rgba(255,255,255,1)");
-    grd.addColorStop(0.3, "rgba(0,240,255,.9)");
-    grd.addColorStop(1, "rgba(0,240,255,0)");
+    grd.addColorStop(0.3, "rgba(4,83,241,.9)");
+    grd.addColorStop(1, "rgba(4,83,241,0)");
     g.fillStyle = grd;
     g.fillRect(0, 0, 64, 64);
     const t = new THREE.Texture(c);
@@ -54,7 +54,7 @@
     transparent: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
-    color: 0x66e8ff,
+    color: 0x3b82f6,
   });
   const points = new THREE.Points(pGeo, pMat);
   scene.add(points);
@@ -64,7 +64,7 @@
   const geo = new THREE.IcosahedronGeometry(3.4, 1);
   const wire = new THREE.LineSegments(
     new THREE.WireframeGeometry(geo),
-    new THREE.LineBasicMaterial({ color: 0x00f0ff, transparent: true, opacity: 0.28 })
+    new THREE.LineBasicMaterial({ color: 0x0453f1, transparent: true, opacity: 0.28 })
   );
   const inner = new THREE.Mesh(
     new THREE.IcosahedronGeometry(2.1, 0),

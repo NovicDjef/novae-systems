@@ -126,7 +126,7 @@ const I18N = {
     "news.btn": "S'inscrire",
     "chat.status": "En ligne · on répond vite",
     "chat.greeting": "👋 Bonjour ! Une question sur votre projet ? Écrivez-nous ici, on vous répond directement.",
-    "footer.rights": "© 2026 NOVÆ Systems — Développement logiciel · Canada. Tous droits réservés."
+    "footer.rights": "© 2026 NOVÆ Systems — Développement logiciel · Sept-Îles, Québec, Canada. Tous droits réservés."
   },
   en: {
     "meta.desc": "NOVÆ Systems — Software development studio in Canada. Custom solutions, mobile apps and SaaS platforms from the future.",
@@ -252,6 +252,6 @@ const I18N = {
     "news.btn": "Subscribe",
     "chat.status": "Online · we reply fast",
     "chat.greeting": "👋 Hi! A question about your project? Message us here and we'll reply directly.",
-    "footer.rights": "© 2026 NOVÆ Systems — Software development · Canada. All rights reserved."
+    "footer.rights": "© 2026 NOVÆ Systems — Software development · Sept-Îles, Québec, Canada. All rights reserved."
   }
 };

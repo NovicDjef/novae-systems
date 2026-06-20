@@ -41,7 +41,7 @@ const SCRUM = {
 const SERVICES = {
   /* ---------------- Applications mobiles ---------------- */
   mobile: {
-    icon: ICONS.mobile, accent: "#00f0ff", accentSoft: "rgba(0,240,255,.18)",
+    icon: ICONS.mobile, accent: "#0453f1", accentSoft: "rgba(4,83,241,.18)",
     fr: {
       name: "Applications mobiles",
       tagline: "Des apps iOS & Android que vos utilisateurs adorent ouvrir.",

@@ -5,7 +5,7 @@ const BLOG = [
   {
     id: "saas-vs-tableur",
     date: "2026-06-12",
-    accent: "#00f0ff",
+    accent: "#0453f1",
     fr: {
       tag: "Produit",
       title: "SaaS ou tableur : quand franchir le pas ?",
