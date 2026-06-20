@@ -116,8 +116,11 @@ body::before{
 .btn--ghost:hover{border-color:var(--cyan);box-shadow:var(--glow-cyan);transform:translateY(-3px)}
 
 /* ---------- Hero ---------- */
-.hero{min-height:100vh;display:grid;place-content:center;text-align:center;padding:140px 20px 80px;position:relative}
+.hero{min-height:100vh;display:grid;place-content:center;padding:120px 20px 80px;position:relative}
+.hero{text-align:center}
 .hero__inner{max-width:1000px;margin:0 auto}
+.hero__content{text-align:center}
+.hero__stage{display:none}
 .hero__badge{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1px solid var(--glass-brd);border-radius:99px;background:var(--glass);font-size:13px;color:var(--muted);margin-bottom:30px}
 .hero__badge-dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:var(--glow-cyan);animation:pulse 1.8s infinite}
 .hero__title{font-family:var(--ff-head);font-weight:900;font-size:clamp(38px,8vw,92px);line-height:1.02;letter-spacing:-1px;margin-bottom:26px}
@@ -264,7 +267,8 @@ body::before{
 .about__text p{color:var(--muted);margin:16px 0;font-size:16px}
 .about__text .section__title{text-align:left}
 .about__list{list-style:none;margin-top:24px;display:grid;gap:12px}
-.about__list li{color:var(--text);font-size:15px}
+.about__list li{position:relative;padding-left:24px;color:var(--text);font-size:15px}
+.about__list li::before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:9px;border:1.5px solid var(--cyan);transform:rotate(45deg)}
 .about__panel{display:grid;place-items:center}
 .hologram{position:relative;width:300px;height:300px;display:grid;place-items:center}
 .hologram__core{font-size:90px;color:var(--cyan);filter:drop-shadow(0 0 40px var(--cyan));animation:pulse 3s infinite}

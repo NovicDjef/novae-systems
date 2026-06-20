@@ -62,33 +62,71 @@
 .contact__emails a b{color:var(--cyan);font-weight:700}
 .contact__emails a:hover{color:var(--text);text-shadow:0 0 18px rgba(4,83,241,.35)}
 
+/* ---------- Démo IA interactive (hero) ---------- */
+.hero__stage canvas{position:absolute;inset:0}
+.aibuild{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100%,440px);height:min(100%,500px);display:flex;flex-direction:column;border-radius:16px;background:rgba(8,12,26,.74);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--glass-brd);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(4,83,241,.22);overflow:hidden}
+.aibuild__bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:rgba(255,255,255,.04);border-bottom:1px solid var(--glass-brd)}
+.aibuild__dot{width:9px;height:9px;border-radius:50%;background:#33415c}
+.aibuild__dot:nth-child(1){background:#ff5f56}.aibuild__dot:nth-child(2){background:#ffbd2e}.aibuild__dot:nth-child(3){background:#27c93f}
+.aibuild__name{margin-left:8px;font-family:var(--ff-head);font-size:11px;letter-spacing:1px;color:var(--muted)}
+.aibuild__prompt{display:flex;align-items:center;gap:7px;padding:13px 16px;font-family:ui-monospace,Menlo,monospace;font-size:13px;color:#cdd6f4;border-bottom:1px solid rgba(255,255,255,.05)}
+.aibuild__caret{color:var(--cyan);font-weight:700}
+.aibuild__cur{width:7px;height:15px;background:var(--cyan);display:inline-block;animation:aibBlink 1s steps(2) infinite}
+@keyframes aibBlink{50%{opacity:0}}
+.aibuild__code{flex:0 0 auto;max-height:170px;overflow:hidden;margin:0;padding:14px 16px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.7;white-space:pre-wrap;color:#c4d0ee;background:rgba(4,8,20,.5)}
+.aibuild__code .t-kw{color:#b58cf6}.aibuild__code .t-str{color:#9ad17a}.aibuild__code .t-fn{color:#6fa8ff}.aibuild__code .t-num{color:#f0a36b}.aibuild__code .t-com{color:#5b6b8c}
+.aibuild__result{flex:1;overflow:hidden;padding:14px;display:flex;flex-direction:column;gap:9px;justify-content:center}
+.aibuild__chips{display:flex;flex-wrap:wrap;gap:7px;padding:12px 14px;border-top:1px solid var(--glass-brd);background:rgba(255,255,255,.03)}
+.aibuild__chips button{font-family:var(--ff-body);font-size:12px;padding:7px 12px;border-radius:99px;background:var(--glass);border:1px solid var(--glass-brd);color:var(--muted);cursor:pointer;transition:.25s}
+.aibuild__chips button:hover,.aibuild__chips button.is-active{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 14px rgba(4,83,241,.35)}
+
+/* éléments de résultat qui s'assemblent */
+.rb{opacity:0;transform:translateY(10px);animation:rbIn .5s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rbIn{to{opacity:1;transform:none}}
+.rb-card{background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:12px;padding:12px 14px}
+.rb-title{font-family:var(--ff-head);font-size:14px;color:var(--text);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
+.rb-row{display:flex;gap:7px;flex-wrap:wrap}
+.rb-pill{font-size:11px;padding:5px 10px;border-radius:8px;background:rgba(4,83,241,.14);border:1px solid rgba(4,83,241,.3);color:#9ec5ff}
+.rb-btn{margin-top:10px;text-align:center;padding:9px;border-radius:9px;background:var(--grad);color:#04050a;font-weight:700;font-size:12px}
+.rb-prod{flex:1;min-width:0;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:10px;overflow:hidden}
+.rb-prod__img{height:46px;background:linear-gradient(135deg,#0453f1,#8b5cf6)}
+.rb-prod__b{padding:7px 9px;font-size:11px;color:var(--muted)}
+.rb-prod__b b{display:block;color:var(--text);font-size:12px}
+.rb-chat{display:flex;flex-direction:column;gap:7px}
+.rb-msg{max-width:82%;padding:8px 11px;border-radius:12px;font-size:12px;line-height:1.4}
+.rb-msg--in{align-self:flex-start;background:rgba(255,255,255,.06);border:1px solid var(--glass-brd);color:var(--text);border-bottom-left-radius:4px}
+.rb-msg--out{align-self:flex-end;background:var(--grad);color:#04050a;border-bottom-right-radius:4px}
+.rb-ok{display:flex;align-items:center;gap:8px;font-size:12px;color:#27c93f;font-family:var(--ff-head)}
+
+@media (max-width:900px){.aibuild{display:none}}
+
 /* ---------- Coordonnées (tél + adresse) ---------- */
 .contact__details{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-top:16px;font-size:15px;color:var(--muted)}
 .contact__details a{color:var(--muted);transition:.25s}
 .contact__details a:hover{color:var(--cyan);text-shadow:var(--glow-cyan)}
+
+/* ---------- Vitrine 3D des apps (hero) ---------- */
+.hero__stage{perspective:1200px}
+.showcase{position:relative;width:100%;height:100%;transform-style:preserve-3d}
+.sc-glow{position:absolute;left:50%;top:50%;width:80%;height:80%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(4,83,241,.4),rgba(139,92,246,.12) 45%,transparent 68%);filter:blur(24px);pointer-events:none}
+.sc-phone{position:absolute;left:50%;top:50%;width:208px;margin:-228px 0 0 -104px;border-radius:32px;background:linear-gradient(160deg,#1b2238,#0a0e1c);border:1px solid rgba(255,255,255,.12);padding:9px;box-shadow:0 30px 70px rgba(0,0,0,.55);will-change:transform}
+.sc-phone img{width:100%;border-radius:24px;display:block}
+.sc-phone--main{box-shadow:0 34px 86px rgba(0,0,0,.62),0 0 54px rgba(4,83,241,.32)}
+.sc-tag{position:absolute;top:-11px;left:16px;font-family:var(--ff-head);font-size:10px;letter-spacing:1px;padding:4px 11px;border-radius:99px;background:var(--grad);color:#04050a;z-index:2}
+.sc-badge{position:absolute;left:50%;top:50%;padding:10px 15px;border-radius:14px;background:rgba(10,14,26,.74);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass-brd);box-shadow:0 14px 34px rgba(0,0,0,.5);text-align:center;white-space:nowrap;will-change:transform}
+.sc-badge b{display:block;font-family:var(--ff-head);font-size:16px;line-height:1.1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sc-badge span{font-size:10px;color:var(--muted);letter-spacing:.5px}
 
 /* ---------- Badge hero rotatif ---------- */
 .hero__badge-pre{color:var(--muted)}
 .hero__rot{font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .3s,transform .3s;display:inline-block;min-width:8ch;text-align:left}
 .hero__rot.is-out{opacity:0;transform:translateY(-6px)}
 
-/* ---------- Mode conduite 🏎️ ---------- */
-.drive-toggle{position:fixed;left:22px;bottom:22px;z-index:880;display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:99px;background:rgba(8,10,18,.6);border:1px solid var(--glass-brd);backdrop-filter:blur(10px);color:var(--muted);font-family:var(--ff-body);font-size:13px;font-weight:600;cursor:pointer;transition:.3s}
-.drive-toggle svg{width:22px;height:22px}
-.drive-toggle:hover{color:var(--text);border-color:var(--cyan);box-shadow:var(--glow-cyan);transform:translateY(-2px)}
-.drive-toggle.is-on{background:var(--grad);color:#04050a;border-color:transparent}
-.drive-toggle__label{white-space:nowrap}
-@media (max-width:600px){.drive-toggle{display:none}}
-
-.car{position:fixed;top:0;left:0;z-index:9990;pointer-events:none;will-change:transform;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45));opacity:0;transition:opacity .3s}
-.drive-mode .car{opacity:1}
-.car svg{display:block}
-.skid{position:fixed;z-index:9989;width:16px;height:5px;border-radius:3px;background:rgba(10,12,20,.9);pointer-events:none;animation:skidFade 1.4s ease forwards}
-@keyframes skidFade{from{opacity:inherit}to{opacity:0}}
-
-/* En mode conduite : on cache le curseur (la voiture le remplace) */
-.drive-mode, .drive-mode a, .drive-mode button, .drive-mode .btn, .drive-mode .card{cursor:none !important}
-.drive-mode .cursor, .drive-mode .cursor-dot{opacity:0 !important}
+/* ---------- Voiture autonome ---------- */
+.roamcar{position:fixed;top:0;left:0;z-index:60;pointer-events:none;will-change:transform;filter:drop-shadow(0 8px 14px rgba(0,0,0,.45)) drop-shadow(0 0 16px rgba(4,83,241,.35))}
+.roamcar svg{display:block}
+.skid{position:fixed;z-index:59;width:18px;height:5px;border-radius:3px;background:rgba(10,14,26,.85);pointer-events:none;animation:skidFade 1.3s ease forwards}
+@keyframes skidFade{from{opacity:.45}to{opacity:0}}
 
 /* ---------- Newsletter ---------- */
 .newsletter{margin-top:38px;padding-top:30px;border-top:1px solid var(--glass-brd)}

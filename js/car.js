@@ -1,105 +1,109 @@
 /* =========================================================
-   NOVÆ SYSTEMS — Mode conduite 🏎️
-   Le curseur devient une voiture top-down qui suit la souris,
-   s'oriente dans le sens du mouvement et laisse des traces de pneus.
+   NOVÆ SYSTEMS — Voiture autonome 🏎️
+   Une belle voiture qui roule toute seule sur la page.
+   Quand la souris s'approche, elle accélère et s'enfuit :
+   on la "guide" en la poussant avec le curseur.
    ========================================================= */
 (function () {
   "use strict";
-  const toggle = document.getElementById("driveToggle");
-  if (!toggle) return;
+  const el = document.getElementById("roamcar");
+  if (!el) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (window.matchMedia("(max-width: 900px)").matches) return; // souris uniquement
 
-  // Voiture (SVG top-down, nez vers la droite = 0°)
-  const car = document.createElement("div");
-  car.className = "car";
-  car.innerHTML =
-    '<svg viewBox="0 0 120 60" width="64" height="32">' +
-    '<defs><linearGradient id="cb" x1="0" y1="0" x2="0" y2="1">' +
-    '<stop offset="0" stop-color="#ff6a4d"/><stop offset="1" stop-color="#e01e3c"/></linearGradient></defs>' +
-    '<ellipse cx="60" cy="52" rx="40" ry="7" fill="rgba(0,0,0,.35)"/>' +
-    '<rect x="8" y="16" width="104" height="28" rx="14" fill="url(#cb)"/>' +
-    '<rect x="4" y="14" width="14" height="8" rx="3" fill="#1b1f2a"/>' +
-    '<rect x="4" y="38" width="14" height="8" rx="3" fill="#1b1f2a"/>' +
-    '<rect x="100" y="14" width="14" height="8" rx="3" fill="#1b1f2a"/>' +
-    '<rect x="100" y="38" width="14" height="8" rx="3" fill="#1b1f2a"/>' +
-    '<path d="M40 20h34l8 10-8 10H40l-6-10z" fill="#0b1020" opacity=".85"/>' +
-    '<rect x="44" y="24" width="30" height="12" rx="3" fill="#7fd6ff" opacity=".9"/>' +
-    '<circle cx="110" cy="24" r="3" fill="#fff3b0"/><circle cx="110" cy="36" r="3" fill="#fff3b0"/>' +
-    '<circle cx="111" cy="24" r="7" fill="#fff3b0" opacity=".25"/><circle cx="111" cy="36" r="7" fill="#fff3b0" opacity=".25"/>' +
+  // Belle voiture top-down (nez vers la droite = 0 rad)
+  el.innerHTML =
+    '<svg viewBox="0 0 140 70" width="84" height="42">' +
+    '<defs><linearGradient id="rc-b" x1="0" y1="0" x2="0" y2="1">' +
+    '<stop offset="0" stop-color="#5aa0ff"/><stop offset=".5" stop-color="#0453f1"/><stop offset="1" stop-color="#0a2a8c"/></linearGradient></defs>' +
+    '<ellipse cx="70" cy="62" rx="54" ry="8" fill="rgba(0,0,0,.35)"/>' +
+    '<rect x="30" y="5" width="24" height="13" rx="6" fill="#13151d"/>' +
+    '<rect x="30" y="52" width="24" height="13" rx="6" fill="#13151d"/>' +
+    '<rect x="92" y="6" width="21" height="12" rx="6" fill="#13151d"/>' +
+    '<rect x="92" y="52" width="21" height="12" rx="6" fill="#13151d"/>' +
+    '<path d="M16 35 C16 21 27 15 44 14 L92 13 C119 13 133 25 133 35 C133 45 119 57 92 57 L44 56 C27 55 16 49 16 35 Z" fill="url(#rc-b)" stroke="#a9d4ff" stroke-width="1" stroke-opacity=".45"/>' +
+    '<rect x="22" y="33" width="100" height="4" rx="2" fill="#cfe6ff" opacity=".45"/>' +
+    '<path d="M50 35 C50 26 56 23 66 23 L82 24 C90 25 94 30 94 35 C94 40 90 45 82 46 L66 47 C56 47 50 44 50 35 Z" fill="#0a1530" opacity=".92"/>' +
+    '<rect x="56" y="29" width="32" height="12" rx="5" fill="#86c8ff" opacity=".9"/>' +
+    '<circle cx="129" cy="28" r="3" fill="#fff7c2"/><circle cx="129" cy="42" r="3" fill="#fff7c2"/>' +
+    '<circle cx="133" cy="28" r="8" fill="#fff7c2" opacity=".22"/><circle cx="133" cy="42" r="8" fill="#fff7c2" opacity=".22"/>' +
+    '<rect x="17" y="26" width="4" height="7" rx="2" fill="#ff3b5c"/><rect x="17" y="38" width="4" height="7" rx="2" fill="#ff3b5c"/>' +
     "</svg>";
-  document.body.appendChild(car);
 
-  let active = false;
-  let mx = innerWidth / 2, my = innerHeight / 2;       // cible (souris)
-  let cx = mx, cy = my;                                  // position voiture
-  let angle = 0, raf = null, lastSkid = 0;
+  let W = innerWidth, H = innerHeight;
+  let x = W * 0.5, y = H * 0.72;
+  let vx = 1.6, vy = 0, angle = 0;
+  let wx = Math.random() * W, wy = Math.random() * H;
+  let mouseX = -999, mouseY = -999, inside = false;
+  let lastSkid = 0, retarget = 0;
 
-  function onMove(e) { mx = e.clientX; my = e.clientY; }
+  addEventListener("mousemove", (e) => { mouseX = e.clientX; mouseY = e.clientY; inside = true; });
+  addEventListener("mouseout", (e) => { if (!e.relatedTarget) inside = false; });
+  addEventListener("resize", () => { W = innerWidth; H = innerHeight; });
 
-  function spawnSkid(x, y, a, strong) {
+  const M = 90;            // marge bords
+  const FLEE = 230;        // rayon de fuite
+  function pickTarget() { wx = M + Math.random() * (W - 2 * M); wy = M + Math.random() * (H - 2 * M); }
+
+  function spawnSkid(px, py, a) {
     const s = document.createElement("div");
     s.className = "skid";
-    s.style.left = x + "px";
-    s.style.top = y + "px";
+    s.style.left = px + "px"; s.style.top = py + "px";
     s.style.transform = "translate(-50%,-50%) rotate(" + a + "rad)";
-    s.style.opacity = strong ? ".5" : ".28";
     document.body.appendChild(s);
-    setTimeout(() => s.remove(), 1400);
+    setTimeout(() => s.remove(), 1300);
   }
 
-  function loop() {
-    // suivi avec inertie (effet de conduite)
-    const dx = mx - cx, dy = my - cy;
-    const dist = Math.hypot(dx, dy);
-    cx += dx * 0.14;
-    cy += dy * 0.14;
+  function frame(now) {
+    let dx, dy, maxSpeed;
 
-    // orientation = direction du déplacement (lissée), seulement si on bouge assez
-    if (dist > 2) {
-      let target = Math.atan2(dy, dx);
-      let diff = target - angle;
+    const mdx = x - mouseX, mdy = y - mouseY;
+    const md = Math.hypot(mdx, mdy);
+
+    if (inside && md < FLEE) {
+      // la souris s'approche → la voiture file dans la direction opposée
+      dx = mdx / (md || 1); dy = mdy / (md || 1);
+      maxSpeed = 8.5 * (1 - md / FLEE) + 3;     // plus la souris est proche, plus elle accélère
+    } else {
+      // balade tranquille vers une cible
+      const tdx = wx - x, tdy = wy - y, td = Math.hypot(tdx, tdy) || 1;
+      dx = tdx / td; dy = tdy / td;
+      maxSpeed = 2.6;
+      if (td < 70 || now - retarget > 4200) { pickTarget(); retarget = now; }
+    }
+
+    // évite les bords
+    if (x < M) dx += 1.4; if (x > W - M) dx -= 1.4;
+    if (y < M) dy += 1.4; if (y > H - M) dy -= 1.4;
+    const dl = Math.hypot(dx, dy) || 1; dx /= dl; dy /= dl;
+
+    // accélère vers la direction voulue (inertie)
+    vx += (dx * maxSpeed - vx) * 0.07;
+    vy += (dy * maxSpeed - vy) * 0.07;
+    x += vx; y += vy;
+
+    const speed = Math.hypot(vx, vy);
+    // orientation lissée vers la direction du mouvement
+    if (speed > 0.4) {
+      let target = Math.atan2(vy, vx), diff = target - angle;
       while (diff > Math.PI) diff -= Math.PI * 2;
       while (diff < -Math.PI) diff += Math.PI * 2;
-      angle += diff * 0.2;
+      angle += diff * 0.18;
     }
 
-    car.style.transform =
-      "translate(" + cx + "px," + cy + "px) translate(-50%,-50%) rotate(" + angle + "rad)";
+    el.style.transform = "translate(" + x + "px," + y + "px) translate(-50%,-50%) rotate(" + angle + "rad)";
 
-    // traces de pneus quand ça roule / braque fort
-    const now = performance.now();
-    if (dist > 14 && now - lastSkid > 26) {
+    // traces de pneus quand ça file
+    if (speed > 4 && now - lastSkid > 24) {
       lastSkid = now;
-      const back = 22; // décalage vers l'arrière de la voiture
-      const bx = cx - Math.cos(angle) * back;
-      const by = cy - Math.sin(angle) * back;
-      const perp = angle + Math.PI / 2;
-      const w = 9;
-      spawnSkid(bx + Math.cos(perp) * w, by + Math.sin(perp) * w, angle, dist > 40);
-      spawnSkid(bx - Math.cos(perp) * w, by - Math.sin(perp) * w, angle, dist > 40);
+      const back = 28, perp = angle + Math.PI / 2, w = 11;
+      const bx = x - Math.cos(angle) * back, by = y - Math.sin(angle) * back;
+      spawnSkid(bx + Math.cos(perp) * w, by + Math.sin(perp) * w, angle);
+      spawnSkid(bx - Math.cos(perp) * w, by - Math.sin(perp) * w, angle);
     }
-    raf = requestAnimationFrame(loop);
-  }
 
-  function start() {
-    active = true;
-    document.body.classList.add("drive-mode");
-    toggle.classList.add("is-on");
-    cx = mx; cy = my;
-    addEventListener("mousemove", onMove);
-    if (!raf) loop();
+    requestAnimationFrame(frame);
   }
-  function stop() {
-    active = false;
-    document.body.classList.remove("drive-mode");
-    toggle.classList.remove("is-on");
-    removeEventListener("mousemove", onMove);
-    if (raf) { cancelAnimationFrame(raf); raf = null; }
-    document.querySelectorAll(".skid").forEach((s) => s.remove());
-  }
-
-  toggle.addEventListener("click", () => (active ? stop() : start()));
-  // Échap pour sortir
-  addEventListener("keydown", (e) => { if (e.key === "Escape" && active) stop(); });
+  pickTarget();
+  requestAnimationFrame(frame);
 })();
