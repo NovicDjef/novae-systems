@@ -79,15 +79,16 @@
       <div class="hero__inner">
         <div class="hero__badge reveal">
           <span class="hero__badge-dot"></span>
-          <span data-i18n="hero.badge">Studio logiciel basé au Canada 🇨🇦</span>
+          <span class="hero__badge-pre" data-i18n="hero.badgePre">Ce que nous créons —</span>
+          <span class="hero__rot" id="heroRot">Applications mobiles</span>
         </div>
         <h1 class="hero__title reveal">
           <span class="hero__line" data-i18n="hero.title1">Nous codons le</span>
           <span class="hero__line hero__line--accent" data-i18n="hero.title2">futur du logiciel</span>
         </h1>
         <p class="hero__sub reveal" data-i18n="hero.sub">
-          Applications mobiles, plateformes SaaS et systèmes intelligents.
-          Des solutions déjà déployées pour des entreprises et des particuliers.
+          Applications mobiles, plateformes SaaS, IA &amp; automatisation intelligente.
+          Des solutions déjà déployées en production pour des entreprises et des particuliers.
         </p>
         <div class="hero__actions reveal">
           <a href="#solutions" class="btn btn--primary" data-i18n="hero.cta1">Découvrir nos solutions</a>
@@ -132,8 +133,8 @@
         </a>
         <a class="card reveal" data-tilt href="services/service.html?s=ai">
           <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div>
-          <h3 data-i18n="services.s3.title">Intelligence artificielle</h3>
-          <p data-i18n="services.s3.desc">Intégration d'IA, agents intelligents et automatisation pour propulser votre activité.</p>
+          <h3 data-i18n="services.s3.title">IA &amp; Automatisation</h3>
+          <p data-i18n="services.s3.desc">Agents intelligents, intégration d'IA et automatisation de vos tâches répétitives pour propulser votre activité.</p>
           <span class="card__more" data-i18n="services.learn">En savoir plus →</span>
         </a>
         <a class="card reveal" data-tilt href="services/service.html?s=custom">
@@ -402,8 +403,18 @@
   <footer class="footer">
     <div class="footer__brand"><span class="nav__logo-mark">◈</span> NOVÆ SYSTEMS</div>
     <p data-i18n="footer.rights">© 2026 NOVÆ Systems — Développement logiciel · Canada. Tous droits réservés.</p>
-    <div class="footer__socials"><a href="#">LinkedIn</a><a href="#">GitHub</a><a href="#">X</a></div>
+    <div class="footer__socials">
+      <a href="https://www.linkedin.com/in/n-d-melataguia-tonleu/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/NovicDjef" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://x.com/NovicDjef/" target="_blank" rel="noopener">X</a>
+    </div>
   </footer>
+
+  <!-- Mode conduite : le curseur devient une voiture -->
+  <button class="drive-toggle" id="driveToggle" aria-label="Mode conduite" title="Conduire 🏎️">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-4.5A2 2 0 0 1 8.4 10h7.2a2 2 0 0 1 1.9 1.5L19 16M5 16h14M5 16v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1m8 0v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2"/><circle cx="7.5" cy="16" r="1"/><circle cx="16.5" cy="16" r="1"/></svg>
+    <span class="drive-toggle__label" data-i18n="drive.label">Conduire</span>
+  </button>
 
   <!-- Widget de chat connecté à Planevia (landing-chat) -->
   <button class="pvchat-fab" id="pvchatFab" aria-label="Discuter avec nous">
@@ -440,5 +451,6 @@
   <script src="js/main.js"></script>
   <script src="js/blog.js"></script>
   <script src="js/chat.js"></script>
+  <script src="js/car.js"></script>
 </body>
 </html>

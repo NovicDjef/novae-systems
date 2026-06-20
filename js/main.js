@@ -131,6 +131,25 @@
     });
   }
 
+  /* ---------- Hero badge — mots rotatifs ---------- */
+  const heroRot = document.getElementById("heroRot");
+  if (heroRot) {
+    const words = {
+      fr: ["Applications mobiles", "Plateformes SaaS", "IA & Automatisation", "Logiciels sur mesure", "Cloud & DevOps"],
+      en: ["Mobile apps", "SaaS platforms", "AI & Automation", "Custom software", "Cloud & DevOps"],
+    };
+    const lang0 = document.documentElement.lang === "en" ? "en" : "fr";
+    heroRot.textContent = words[lang0][0];
+    let wi = 0;
+    setInterval(() => {
+      const lang = document.documentElement.lang === "en" ? "en" : "fr";
+      const list = words[lang];
+      wi = (wi + 1) % list.length;
+      heroRot.classList.add("is-out");
+      setTimeout(() => { heroRot.textContent = list[wi]; heroRot.classList.remove("is-out"); }, 300);
+    }, 2300);
+  }
+
   /* ---------- Card glow follow ---------- */
   document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("mousemove", (e) => {
