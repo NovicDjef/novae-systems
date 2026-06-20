@@ -119,6 +119,8 @@ const I18N = {
     "contact.email": "Adresse courriel",
     "contact.msg": "Votre projet",
     "contact.send": "Envoyer le message",
+    "news.label": "📨 Restez informé — actualités & conseils tech",
+    "news.btn": "S'inscrire",
     "footer.rights": "© 2026 NOVÆ Systems — Développement logiciel · Canada. Tous droits réservés."
   },
   en: {
@@ -238,6 +240,8 @@ const I18N = {
     "contact.email": "Email address",
     "contact.msg": "Your project",
     "contact.send": "Send message",
+    "news.label": "📨 Stay in the loop — news & tech tips",
+    "news.btn": "Subscribe",
     "footer.rights": "© 2026 NOVÆ Systems — Software development · Canada. All rights reserved."
   }
 };

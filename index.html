@@ -362,10 +362,10 @@
         <span class="section__tag" data-i18n="contact.tag">// Parlons de votre projet</span>
         <h2 class="section__title" data-i18n="contact.title">Prêt à bâtir le futur ?</h2>
         <p class="section__lead" data-i18n="contact.lead">Décrivez-nous votre idée. On vous répond sous 24&nbsp;h.</p>
-        <!-- Pour activer l'envoi réel : crée un formulaire gratuit sur formspree.io
-             et remplace YOUR_FORM_ID ci-dessous par ton identifiant.
-             Sans ça, le formulaire ouvre simplement l'app mail (solution de repli). -->
-        <form class="contact__form" id="contactForm" data-endpoint="https://formspree.io/f/YOUR_FORM_ID">
+        <!-- Le formulaire envoie vers l'API Planevia (POST /api/contact).
+             Les messages sont consultables dans le super-admin Planevia → Messages.
+             Repli automatique sur l'app mail si l'API est injoignable. -->
+        <form class="contact__form" id="contactForm">
           <div class="field"><input type="text" name="name" required /><label data-i18n="contact.name">Nom complet</label></div>
           <div class="field"><input type="email" name="email" required /><label data-i18n="contact.email">Adresse courriel</label></div>
           <div class="field field--full"><textarea name="message" rows="4" required></textarea><label data-i18n="contact.msg">Votre projet</label></div>
@@ -376,6 +376,15 @@
           <a href="mailto:contact@novae-systems.ca"><b>contact@</b>novae-systems.ca</a>
           <a href="mailto:info@novae-systems.ca"><b>info@</b>novae-systems.ca</a>
           <a href="mailto:support@novae-systems.ca"><b>support@</b>novae-systems.ca</a>
+        </div>
+
+        <div class="newsletter">
+          <p class="newsletter__label" data-i18n="news.label">📨 Restez informé — actualités &amp; conseils tech</p>
+          <form class="newsletter__form" id="newsletterForm">
+            <input type="email" name="email" required placeholder="vous@courriel.com" aria-label="Courriel" />
+            <button type="submit" class="btn btn--primary" data-i18n="news.btn">S'inscrire</button>
+          </form>
+          <p class="contact__status" id="newsletterStatus" role="status"></p>
         </div>
       </div>
     </section>

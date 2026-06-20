@@ -172,33 +172,75 @@
     });
   }
 
-  /* ---------- Contact form (Formspree + repli mailto) ---------- */
+  /* ---------- API Planevia (contact + newsletter) ----------
+     Les soumissions partent vers POST https://api.planevia.ca/api/contact
+     et sont consultables dans le super-admin Planevia → Messages. */
+  const PLANEVIA_API = "https://api.planevia.ca/api/contact";
+
+  function setStatus(el, state, msg) {
+    if (!el) return;
+    el.className = "contact__status is-" + state;
+    el.textContent = msg;
+  }
+  async function sendToPlanevia(payload) {
+    const res = await fetch(PLANEVIA_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || json.success === false) throw new Error(json.message || "error");
+    return json;
+  }
+
+  /* Formulaire de contact */
   const form = document.getElementById("contactForm");
   const status = document.getElementById("contactStatus");
   form && form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const en = document.documentElement.lang === "en";
-    const endpoint = form.getAttribute("data-endpoint") || "";
     const data = new FormData(form);
-
-    // Repli : si Formspree n'est pas configuré, on ouvre l'app mail
-    if (!endpoint || endpoint.indexOf("YOUR_FORM_ID") !== -1) {
-      const subject = encodeURIComponent("Nouveau projet — " + (data.get("name") || ""));
-      const body = encodeURIComponent(
-        (data.get("message") || "") + "\n\n— " + (data.get("name") || "") + " (" + (data.get("email") || "") + ")"
-      );
-      window.location.href = `mailto:contact@novae-systems.ca?subject=${subject}&body=${body}`;
-      return;
-    }
-
-    if (status) { status.className = "contact__status is-loading"; status.textContent = en ? "Sending…" : "Envoi en cours…"; }
+    const payload = {
+      name: (data.get("name") || "").toString().trim(),
+      email: (data.get("email") || "").toString().trim(),
+      message: (data.get("message") || "").toString().trim(),
+      subject: "sales",
+      organizationName: "Lead via novae-systems.ca",
+    };
+    setStatus(status, "loading", en ? "Sending…" : "Envoi en cours…");
     try {
-      const res = await fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
-      if (!res.ok) throw new Error("bad");
+      await sendToPlanevia(payload);
       form.reset();
-      if (status) { status.className = "contact__status is-ok"; status.textContent = en ? "Message sent — thank you! We reply within 24h." : "Message envoyé — merci ! On vous répond sous 24 h."; }
+      setStatus(status, "ok", en ? "Message sent — thank you! We reply within 24h." : "Message envoyé — merci ! On vous répond sous 24 h.");
     } catch (err) {
-      if (status) { status.className = "contact__status is-err"; status.textContent = en ? "Something went wrong. Please email us directly." : "Une erreur est survenue. Écrivez-nous directement par courriel."; }
+      // Repli : ouvre l'app mail du visiteur
+      const subject = encodeURIComponent("Nouveau projet — " + payload.name);
+      const body = encodeURIComponent(payload.message + "\n\n— " + payload.name + " (" + payload.email + ")");
+      setStatus(status, "err", en ? "Network issue — opening your mail app…" : "Souci réseau — ouverture de votre app mail…");
+      window.location.href = `mailto:contact@novae-systems.ca?subject=${subject}&body=${body}`;
+    }
+  });
+
+  /* Inscription newsletter */
+  const news = document.getElementById("newsletterForm");
+  const newsStatus = document.getElementById("newsletterStatus");
+  news && news.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const en = document.documentElement.lang === "en";
+    const email = (new FormData(news).get("email") || "").toString().trim();
+    setStatus(newsStatus, "loading", en ? "Subscribing…" : "Inscription…");
+    try {
+      await sendToPlanevia({
+        name: "Abonne newsletter",
+        email,
+        message: "Souhaite s'inscrire a la newsletter via le site novae-systems.ca.",
+        subject: "general",
+        organizationName: "Newsletter via novae-systems.ca",
+      });
+      news.reset();
+      setStatus(newsStatus, "ok", en ? "You're subscribed — thank you!" : "Inscription réussie — merci !");
+    } catch (err) {
+      setStatus(newsStatus, "err", en ? "Couldn't subscribe. Please try again later." : "Inscription impossible. Réessayez plus tard.");
     }
   });
 
