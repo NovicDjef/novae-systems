@@ -172,15 +172,44 @@
     });
   }
 
-  /* ---------- Contact form ---------- */
+  /* ---------- Contact form (Formspree + repli mailto) ---------- */
   const form = document.getElementById("contactForm");
-  form && form.addEventListener("submit", (e) => {
+  const status = document.getElementById("contactStatus");
+  form && form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const en = document.documentElement.lang === "en";
+    const endpoint = form.getAttribute("data-endpoint") || "";
     const data = new FormData(form);
-    const subject = encodeURIComponent("Nouveau projet — " + (data.get("name") || ""));
-    const body = encodeURIComponent(
-      (data.get("message") || "") + "\n\n— " + (data.get("name") || "") + " (" + (data.get("email") || "") + ")"
-    );
-    window.location.href = `mailto:novicmelataguia@gmail.com?subject=${subject}&body=${body}`;
+
+    // Repli : si Formspree n'est pas configuré, on ouvre l'app mail
+    if (!endpoint || endpoint.indexOf("YOUR_FORM_ID") !== -1) {
+      const subject = encodeURIComponent("Nouveau projet — " + (data.get("name") || ""));
+      const body = encodeURIComponent(
+        (data.get("message") || "") + "\n\n— " + (data.get("name") || "") + " (" + (data.get("email") || "") + ")"
+      );
+      window.location.href = `mailto:novicmelataguia@gmail.com?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    if (status) { status.className = "contact__status is-loading"; status.textContent = en ? "Sending…" : "Envoi en cours…"; }
+    try {
+      const res = await fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error("bad");
+      form.reset();
+      if (status) { status.className = "contact__status is-ok"; status.textContent = en ? "Message sent — thank you! We reply within 24h." : "Message envoyé — merci ! On vous répond sous 24 h."; }
+    } catch (err) {
+      if (status) { status.className = "contact__status is-err"; status.textContent = en ? "Something went wrong. Please email us directly." : "Une erreur est survenue. Écrivez-nous directement par courriel."; }
+    }
+  });
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll(".faq__item").forEach((item) => {
+    const q = item.querySelector(".faq__q");
+    const a = item.querySelector(".faq__a");
+    if (!q || !a) return;
+    q.addEventListener("click", () => {
+      const open = item.classList.toggle("is-open");
+      a.style.maxHeight = open ? a.scrollHeight + "px" : "0";
+    });
   });
 })();

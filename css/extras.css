@@ -1,0 +1,72 @@
+/* =========================================================
+   NOVÆ SYSTEMS — Modules additionnels
+   Confiance · Témoignages · FAQ · Blog · WhatsApp · Contact
+   ========================================================= */
+
+/* ---------- Bandeau de confiance ---------- */
+.trustbar{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:980px;margin:0 auto 70px;padding:26px clamp(16px,3vw,30px);border-radius:20px;background:var(--glass);border:1px solid var(--glass-brd);text-align:center}
+.trustbar__item b{display:block;font-family:var(--ff-head);font-size:clamp(24px,4vw,34px);font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.trustbar__item span{font-size:12px;color:var(--muted);letter-spacing:.5px}
+@media (max-width:680px){.trustbar{grid-template-columns:1fr 1fr;gap:22px}}
+
+/* ---------- Témoignages ---------- */
+.testi__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.testi{padding:30px 26px;border-radius:20px;background:var(--glass);border:1px solid var(--glass-brd);transition:.4s;margin:0}
+.testi:hover{transform:translateY(-6px);border-color:rgba(0,240,255,.45);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.testi__stars{color:#ffb300;letter-spacing:2px;margin-bottom:14px}
+.testi blockquote{font-size:16px;line-height:1.6;color:var(--text);margin:0 0 20px}
+.testi figcaption b{display:block;font-family:var(--ff-head);font-size:14px}
+.testi figcaption span{font-size:13px;color:var(--muted)}
+
+/* ---------- FAQ ---------- */
+.faq__list{max-width:820px;margin:0 auto;display:grid;gap:14px}
+.faq__item{border:1px solid var(--glass-brd);border-radius:16px;background:var(--glass);overflow:hidden;transition:border-color .3s}
+.faq__item.is-open{border-color:rgba(0,240,255,.4)}
+.faq__q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;background:none;border:0;color:var(--text);font-family:var(--ff-body);font-size:16px;font-weight:600;text-align:left;cursor:none}
+.faq__q i{position:relative;width:16px;height:16px;flex:0 0 auto}
+.faq__q i::before,.faq__q i::after{content:"";position:absolute;background:var(--cyan);border-radius:2px;transition:.3s}
+.faq__q i::before{top:7px;left:0;width:16px;height:2px}
+.faq__q i::after{top:0;left:7px;width:2px;height:16px}
+.faq__item.is-open .faq__q i::after{transform:rotate(90deg);opacity:0}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq__a p{padding:0 24px 22px;color:var(--muted);font-size:15px;line-height:1.6}
+
+/* ---------- Blog ---------- */
+.blog__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+.bcard{display:flex;flex-direction:column;padding:28px 26px;border-radius:20px;background:var(--glass);border:1px solid var(--glass-brd);transition:.4s;position:relative;overflow:hidden}
+.bcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--cyan));opacity:.8}
+.bcard:hover{transform:translateY(-6px);border-color:var(--accent,var(--cyan));box-shadow:0 22px 55px rgba(0,0,0,.45)}
+.bcard__top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
+.bcard__tag{font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:5px 11px;border-radius:99px;background:var(--accent-soft,rgba(0,240,255,.12));color:var(--accent,var(--cyan));border:1px solid var(--glass-brd)}
+.bcard__date{font-size:12px;color:var(--muted)}
+.bcard__title{font-family:var(--ff-head);font-size:19px;font-weight:500;line-height:1.25;margin-bottom:12px}
+.bcard__excerpt{color:var(--muted);font-size:14px;line-height:1.6;flex:1}
+.bcard__more{margin-top:18px;font-size:13px;font-weight:600;color:var(--accent,var(--cyan))}
+
+/* ---------- Article ---------- */
+.bpost{max-width:760px;margin:0 auto;padding:150px clamp(20px,6vw,40px) 40px}
+.bpost__tag{font-family:var(--ff-head);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent,var(--cyan))}
+.bpost__title{font-family:var(--ff-head);font-weight:900;font-size:clamp(30px,5.5vw,52px);letter-spacing:-1px;line-height:1.05;margin:14px 0 16px}
+.bpost__meta{color:var(--muted);font-size:14px;padding-bottom:24px;border-bottom:1px solid var(--glass-brd);margin-bottom:32px}
+.bpost__body{font-size:17px;line-height:1.8;color:#c9d2f0}
+.bpost__body h3{font-family:var(--ff-head);font-size:22px;color:var(--text);margin:34px 0 12px}
+.bpost__body p{margin-bottom:18px}
+.bpost__body ul{margin:0 0 18px;padding-left:4px;list-style:none}
+.bpost__body li{position:relative;padding-left:26px;margin-bottom:10px}
+.bpost__body li::before{content:"";position:absolute;left:4px;top:9px;width:8px;height:8px;border-radius:50%;background:var(--accent,var(--cyan))}
+.bpost__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:44px;padding-top:32px;border-top:1px solid var(--glass-brd)}
+
+/* ---------- Statut formulaire de contact ---------- */
+.contact__status{grid-column:1/-1;text-align:center;font-size:14px;margin-top:6px;min-height:20px}
+.contact__status.is-ok{color:#22e07a}
+.contact__status.is-err{color:#ff5b6b}
+.contact__status.is-loading{color:var(--muted)}
+
+/* ---------- Bouton WhatsApp flottant ---------- */
+.whatsapp{position:fixed;right:22px;bottom:22px;z-index:850;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#25d366,#1ebe5d);box-shadow:0 10px 30px rgba(37,211,102,.45);transition:transform .3s,box-shadow .3s;animation:waPulse 2.6s ease-in-out infinite}
+.whatsapp svg{width:30px;height:30px}
+.whatsapp:hover{transform:scale(1.1) translateY(-2px);box-shadow:0 16px 40px rgba(37,211,102,.6)}
+@keyframes waPulse{0%,100%{box-shadow:0 10px 30px rgba(37,211,102,.45)}50%{box-shadow:0 10px 30px rgba(37,211,102,.45),0 0 0 12px rgba(37,211,102,.08)}}
+@media (max-width:600px){.whatsapp{width:52px;height:52px;right:16px;bottom:16px}.whatsapp svg{width:26px;height:26px}}
+
+@media (prefers-reduced-motion:reduce){.whatsapp{animation:none}}

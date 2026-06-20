@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://novicdjef.github.io/novae-systems/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/projets/planevia.html</loc><priority>0.9</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/projets/raphycar.html</loc><priority>0.9</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/blog/index.html</loc><priority>0.7</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/blog/article.html?id=saas-vs-tableur</loc><priority>0.6</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/blog/article.html?id=mvp-6-semaines</loc><priority>0.6</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/blog/article.html?id=paiements-mobile-money-stripe</loc><priority>0.6</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/services/service.html?s=mobile</loc><priority>0.7</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/services/service.html?s=web</loc><priority>0.7</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/services/service.html?s=ai</loc><priority>0.7</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/services/service.html?s=custom</loc><priority>0.7</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/services/service.html?s=cloud</loc><priority>0.7</priority></url>
+  <url><loc>https://novicdjef.github.io/novae-systems/services/service.html?s=design</loc><priority>0.7</priority></url>
+</urlset>

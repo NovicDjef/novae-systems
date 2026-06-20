@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://novicdjef.github.io/novae-systems/sitemap.xml

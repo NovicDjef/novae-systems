@@ -5,12 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" data-i18n="meta.desc" content="NOVÆ Systems — Agence de développement logiciel au Canada. Solutions sur mesure, applications mobiles et plateformes SaaS du futur." />
   <title>NOVÆ Systems — Architectes du logiciel de demain</title>
+  <link rel="canonical" href="https://novicdjef.github.io/novae-systems/" />
+
+  <!-- Open Graph / partages (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NOVÆ Systems" />
+  <meta property="og:title" content="NOVÆ Systems — Architectes du logiciel de demain" />
+  <meta property="og:description" content="Studio de développement logiciel au Canada. Applications mobiles, plateformes SaaS et IA — déjà en production pour des entreprises et des particuliers." />
+  <meta property="og:url" content="https://novicdjef.github.io/novae-systems/" />
+  <meta property="og:image" content="https://novicdjef.github.io/novae-systems/assets/og-cover.png" />
+  <meta property="og:locale" content="fr_CA" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NOVÆ Systems — Architectes du logiciel de demain" />
+  <meta name="twitter:description" content="Studio de développement logiciel au Canada. Apps mobiles, SaaS et IA en production." />
+  <meta name="twitter:image" content="https://novicdjef.github.io/novae-systems/assets/og-cover.png" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070a12'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%2300f0ff' font-family='Arial'%3E%E2%97%88%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/extras.css" />
 </head>
 <body>
   <!-- Préchargeur -->
@@ -43,7 +58,8 @@
     <nav class="nav__links" id="navLinks">
       <a href="#services" data-i18n="nav.services">Services</a>
       <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
-      <a href="#process" data-i18n="nav.process">Processus</a>
+      <a href="#testimonials" data-i18n="nav.testi">Avis</a>
+      <a href="#blog" data-i18n="nav.blog">Blog</a>
       <a href="#about" data-i18n="nav.about">À propos</a>
       <a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a>
     </nav>
@@ -228,6 +244,37 @@
       </div>
     </section>
 
+    <!-- CONFIANCE + TÉMOIGNAGES -->
+    <section class="section testimonials" id="testimonials">
+      <div class="trustbar reveal">
+        <div class="trustbar__item"><b>5/5</b><span data-i18n="trust.t1">Note App Store</span></div>
+        <div class="trustbar__item"><b>1863+</b><span data-i18n="trust.t2">Clients gérés</span></div>
+        <div class="trustbar__item"><b>2</b><span data-i18n="trust.t3">Apps en production (iOS · Android)</span></div>
+        <div class="trustbar__item"><b>24&nbsp;h</b><span data-i18n="trust.t4">Délai de réponse</span></div>
+      </div>
+      <div class="section__head reveal">
+        <span class="section__tag" data-i18n="testi.tag">// Ils nous font confiance</span>
+        <h2 class="section__title" data-i18n="testi.title">Ce que disent nos clients</h2>
+      </div>
+      <div class="testi__grid">
+        <figure class="testi reveal">
+          <div class="testi__stars">★★★★★</div>
+          <blockquote data-i18n="testi.q1">« On a remplacé toute notre paperasse par Planevia. Les réservations en ligne et les rappels automatiques nous ont fait gagner un temps fou — et nos clients adorent. »</blockquote>
+          <figcaption><b data-i18n="testi.a1">Direction</b><span data-i18n="testi.r1">Spa Renaissance · Québec</span></figcaption>
+        </figure>
+        <figure class="testi reveal">
+          <div class="testi__stars">★★★★★</div>
+          <blockquote data-i18n="testi.q2">« RaphyCar a transformé notre agence : on publie nos véhicules, on reçoit les réservations et on gère tout depuis l'app. Travail sérieux et livré dans les temps. »</blockquote>
+          <figcaption><b data-i18n="testi.a2">Fondateur d'agence</b><span data-i18n="testi.r2">Location de véhicules</span></figcaption>
+        </figure>
+        <figure class="testi reveal">
+          <div class="testi__stars">★★★★★</div>
+          <blockquote data-i18n="testi.q3">« Une équipe à l'écoute, une vraie méthode et un produit final au-dessus de nos attentes. Je recommande sans hésiter. »</blockquote>
+          <figcaption><b data-i18n="testi.a3">Client particulier</b><span data-i18n="testi.r3">Projet sur mesure</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- PROCESSUS -->
     <section class="section process" id="process">
       <div class="section__head reveal">
@@ -268,17 +315,62 @@
       </div>
     </section>
 
+    <!-- BLOG -->
+    <section class="section blog" id="blog">
+      <div class="section__head reveal">
+        <span class="section__tag" data-i18n="blog.tag">// Le journal</span>
+        <h2 class="section__title" data-i18n="blog.title">Idées &amp; coulisses</h2>
+        <p class="section__lead" data-i18n="blog.lead">Nos réflexions sur le logiciel, le SaaS et la création de produits numériques.</p>
+      </div>
+      <div class="blog__grid" id="blogHome"></div>
+      <div style="text-align:center;margin-top:40px"><a href="blog/index.html" class="btn btn--ghost" data-i18n="blog.all">Tous les articles →</a></div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+      <div class="section__head reveal">
+        <span class="section__tag" data-i18n="faq.tag">// Questions fréquentes</span>
+        <h2 class="section__title" data-i18n="faq.title">Vous vous demandez peut-être…</h2>
+      </div>
+      <div class="faq__list reveal">
+        <div class="faq__item">
+          <button class="faq__q"><span data-i18n="faq.q1">Combien de temps prend un projet ?</span><i></i></button>
+          <div class="faq__a"><p data-i18n="faq.a1">Cela dépend du périmètre. Un MVP fonctionnel prend généralement de 4 à 10 semaines. On avance par sprints, donc vous voyez des résultats concrets dès les premières semaines.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q"><span data-i18n="faq.q2">Combien ça coûte ?</span><i></i></button>
+          <div class="faq__a"><p data-i18n="faq.a2">Chaque projet est unique. Après un premier échange gratuit, on vous remet une estimation claire (forfait ou régie). On s'adapte à votre budget et on priorise ce qui a le plus de valeur.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q"><span data-i18n="faq.q3">À qui appartient le code ?</span><i></i></button>
+          <div class="faq__a"><p data-i18n="faq.a3">À vous, à 100 %. Vous êtes propriétaire de l'intégralité du code source et des accès une fois le projet livré.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q"><span data-i18n="faq.q4">Assurez-vous la maintenance ?</span><i></i></button>
+          <div class="faq__a"><p data-i18n="faq.a4">Oui. On propose un suivi après lancement : corrections, mises à jour, supervision et nouvelles fonctionnalités selon vos besoins.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q"><span data-i18n="faq.q5">Travaillez-vous avec des clients hors du Canada ?</span><i></i></button>
+          <div class="faq__a"><p data-i18n="faq.a5">Absolument. On accompagne des clients au Canada comme à l'international, en français et en anglais, à distance et en toute transparence.</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="section contact" id="contact">
       <div class="contact__inner reveal">
         <span class="section__tag" data-i18n="contact.tag">// Parlons de votre projet</span>
         <h2 class="section__title" data-i18n="contact.title">Prêt à bâtir le futur ?</h2>
         <p class="section__lead" data-i18n="contact.lead">Décrivez-nous votre idée. On vous répond sous 24&nbsp;h.</p>
-        <form class="contact__form" id="contactForm">
+        <!-- Pour activer l'envoi réel : crée un formulaire gratuit sur formspree.io
+             et remplace YOUR_FORM_ID ci-dessous par ton identifiant.
+             Sans ça, le formulaire ouvre simplement l'app mail (solution de repli). -->
+        <form class="contact__form" id="contactForm" data-endpoint="https://formspree.io/f/YOUR_FORM_ID">
           <div class="field"><input type="text" name="name" required /><label data-i18n="contact.name">Nom complet</label></div>
           <div class="field"><input type="email" name="email" required /><label data-i18n="contact.email">Adresse courriel</label></div>
           <div class="field field--full"><textarea name="message" rows="4" required></textarea><label data-i18n="contact.msg">Votre projet</label></div>
           <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.send">Envoyer le message</button>
+          <p class="contact__status" id="contactStatus" role="status"></p>
         </form>
         <p class="contact__alt">novicmelataguia@gmail.com</p>
       </div>
@@ -291,9 +383,16 @@
     <div class="footer__socials"><a href="#">LinkedIn</a><a href="#">GitHub</a><a href="#">X</a></div>
   </footer>
 
+  <!-- WhatsApp flottant — remplace le numéro (format international, sans +) -->
+  <a class="whatsapp" id="whatsapp" href="https://wa.me/237600000000" target="_blank" rel="noopener" aria-label="WhatsApp" data-number="237600000000">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/blog-data.js"></script>
   <script src="js/scene.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
 </body>
 </html>
