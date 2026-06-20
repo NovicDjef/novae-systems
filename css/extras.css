@@ -76,11 +76,38 @@
 .contact__status.is-err{color:#ff5b6b}
 .contact__status.is-loading{color:var(--muted)}
 
-/* ---------- Bouton WhatsApp flottant ---------- */
-.whatsapp{position:fixed;right:22px;bottom:22px;z-index:850;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#25d366,#1ebe5d);box-shadow:0 10px 30px rgba(37,211,102,.45);transition:transform .3s,box-shadow .3s;animation:waPulse 2.6s ease-in-out infinite}
-.whatsapp svg{width:30px;height:30px}
-.whatsapp:hover{transform:scale(1.1) translateY(-2px);box-shadow:0 16px 40px rgba(37,211,102,.6)}
-@keyframes waPulse{0%,100%{box-shadow:0 10px 30px rgba(37,211,102,.45)}50%{box-shadow:0 10px 30px rgba(37,211,102,.45),0 0 0 12px rgba(37,211,102,.08)}}
-@media (max-width:600px){.whatsapp{width:52px;height:52px;right:16px;bottom:16px}.whatsapp svg{width:26px;height:26px}}
+/* ---------- Widget de chat (Planevia) ---------- */
+:root{--pv:#14b8a6;--pv-grad:linear-gradient(135deg,#2fe0c2,#0c8b86)}
+.pvchat-fab{position:fixed;right:22px;bottom:22px;z-index:880;width:60px;height:60px;border-radius:50%;border:none;display:grid;place-items:center;color:#fff;background:var(--pv-grad);box-shadow:0 12px 34px rgba(20,184,166,.5);cursor:pointer;transition:transform .3s,box-shadow .3s;animation:pvPulse 2.8s ease-in-out infinite}
+.pvchat-fab:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 18px 44px rgba(20,184,166,.6)}
+.pvchat-fab svg{width:28px;height:28px;position:absolute;transition:opacity .25s,transform .25s}
+.pvchat-fab__close{opacity:0;transform:rotate(-90deg) scale(.6)}
+.pvchat-fab.is-open .pvchat-fab__chat{opacity:0;transform:rotate(90deg) scale(.6)}
+.pvchat-fab.is-open .pvchat-fab__close{opacity:1;transform:none}
+@keyframes pvPulse{0%,100%{box-shadow:0 12px 34px rgba(20,184,166,.5)}50%{box-shadow:0 12px 34px rgba(20,184,166,.5),0 0 0 12px rgba(20,184,166,.1)}}
 
-@media (prefers-reduced-motion:reduce){.whatsapp{animation:none}}
+.pvchat{position:fixed;right:22px;bottom:94px;z-index:879;width:min(370px,calc(100vw - 32px));height:min(540px,calc(100vh - 130px));background:#fff;border-radius:20px;box-shadow:0 30px 70px rgba(0,0,0,.45);display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(20px) scale(.96);transform-origin:bottom right;pointer-events:none;transition:opacity .3s,transform .3s;font-family:var(--ff-body)}
+.pvchat.is-open{opacity:1;transform:none;pointer-events:auto}
+.pvchat__head{background:var(--pv-grad);color:#fff;padding:18px 20px}
+.pvchat__brand{display:flex;align-items:center;gap:12px}
+.pvchat__avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.18);font-size:20px}
+.pvchat__brand b{font-family:var(--ff-head);font-size:16px;display:block}
+.pvchat__brand small{font-size:12px;opacity:.92;display:flex;align-items:center;gap:6px}
+.pvchat__online{width:8px;height:8px;border-radius:50%;background:#7CFFCB;box-shadow:0 0 8px #7CFFCB}
+.pvchat__body{flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:10px;background:#f4f6f8}
+.pvchat__msg{max-width:80%;padding:11px 14px;border-radius:16px;font-size:14px;line-height:1.45;white-space:pre-wrap;word-break:break-word;animation:pvIn .25s ease}
+@keyframes pvIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pvchat__msg--bot{align-self:flex-start;background:#fff;color:#0f172a;border:1px solid #e6e9ef;border-bottom-left-radius:5px}
+.pvchat__msg--me{align-self:flex-end;background:var(--pv-grad);color:#fff;border-bottom-right-radius:5px}
+.pvchat__form{padding:12px;border-top:1px solid #eceef2;background:#fff}
+.pvchat__id{display:flex;gap:8px;margin-bottom:8px}
+.pvchat__id input{flex:1;min-width:0;border:1px solid #e3e6ec;border-radius:10px;padding:9px 11px;font-size:13px;color:#0f172a;outline:none;font-family:var(--ff-body)}
+.pvchat__id input:focus{border-color:var(--pv)}
+.pvchat__inputrow{display:flex;gap:8px;align-items:center}
+.pvchat__inputrow input{flex:1;border:1px solid #e3e6ec;border-radius:12px;padding:12px 14px;font-size:14px;color:#0f172a;outline:none;font-family:var(--ff-body)}
+.pvchat__inputrow input:focus{border-color:var(--pv);box-shadow:0 0 0 3px rgba(20,184,166,.12)}
+.pvchat__inputrow button{flex:0 0 auto;width:44px;height:44px;border:none;border-radius:12px;background:var(--pv-grad);color:#fff;cursor:pointer;display:grid;place-items:center;transition:transform .2s}
+.pvchat__inputrow button:hover{transform:scale(1.06)}
+.pvchat__inputrow button svg{width:20px;height:20px}
+@media (max-width:600px){.pvchat-fab{right:16px;bottom:16px}.pvchat{right:16px;left:16px;bottom:86px;width:auto}}
+@media (prefers-reduced-motion:reduce){.pvchat-fab{animation:none}}

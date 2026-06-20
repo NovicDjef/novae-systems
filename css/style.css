@@ -171,6 +171,7 @@ body::before{
 .project__visual--4{background:linear-gradient(135deg,#00ffb333,#0b2b22),repeating-linear-gradient(-45deg,#00ffb322 0 2px,transparent 2px 14px)}
 .project__visual--5{background:linear-gradient(135deg,#ffb70033,#2b2310),repeating-linear-gradient(45deg,#ffb70022 0 2px,transparent 2px 14px)}
 .project__visual--6{background:linear-gradient(135deg,#4f7dff33,#0f1530),repeating-linear-gradient(-45deg,#4f7dff22 0 2px,transparent 2px 14px)}
+.project__visual--photo{background-size:cover;background-position:center;background-repeat:no-repeat}
 .project__chip{position:relative;z-index:2;font-size:12px;letter-spacing:1px;padding:6px 14px;border-radius:99px;background:rgba(0,0,0,.5);border:1px solid var(--glass-brd);backdrop-filter:blur(6px)}
 .project__body{padding:24px}
 .project__body h3{font-family:var(--ff-head);font-size:22px;margin-bottom:10px}

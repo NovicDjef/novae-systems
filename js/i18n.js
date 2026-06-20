@@ -66,6 +66,7 @@ const I18N = {
     "solutions.flag.ui.clinic": "Clinique", "solutions.flag.ui.cal": "Calendrier", "solutions.flag.ui.files": "Dossiers", "solutions.flag.ui.msg": "Messages",
     "solutions.flag.ui.voice": "Note vocale IA · SOAP",
     "solutions.p2.chip": "Web · Bien-être", "solutions.p2.title": "Spa Renaissance", "solutions.p2.desc": "Portail web de réservation et de gestion pour le centre de bien-être Spa Renaissance.",
+    "solutions.jt.chip": "Web · Logistique", "solutions.jt.title": "JT Trade and Services", "solutions.jt.desc": "Site vitrine pour une entreprise d'import-export et de logistique internationale (Afrique ↔ Monde), avec simulateur de devis.",
     "solutions.visit": "Visiter le site →",
     "solutions.more.title": "Et bien plus",
     "solutions.more.desc": "D'autres solutions logicielles et applications livrées pour nos clients. Parlons de la vôtre.",
@@ -121,6 +122,8 @@ const I18N = {
     "contact.send": "Envoyer le message",
     "news.label": "📨 Restez informé — actualités & conseils tech",
     "news.btn": "S'inscrire",
+    "chat.status": "En ligne · on répond vite",
+    "chat.greeting": "👋 Bonjour ! Une question sur votre projet ? Écrivez-nous ici, on vous répond directement.",
     "footer.rights": "© 2026 NOVÆ Systems — Développement logiciel · Canada. Tous droits réservés."
   },
   en: {
@@ -187,6 +190,7 @@ const I18N = {
     "solutions.flag.ui.clinic": "Clinic", "solutions.flag.ui.cal": "Calendar", "solutions.flag.ui.files": "Records", "solutions.flag.ui.msg": "Messages",
     "solutions.flag.ui.voice": "AI voice note · SOAP",
     "solutions.p2.chip": "Web · Wellness", "solutions.p2.title": "Spa Renaissance", "solutions.p2.desc": "Web booking and management portal for the Spa Renaissance wellness center.",
+    "solutions.jt.chip": "Web · Logistics", "solutions.jt.title": "JT Trade and Services", "solutions.jt.desc": "Showcase website for an import-export and international logistics company (Africa ↔ World), with a quote simulator.",
     "solutions.visit": "Visit the site →",
     "solutions.more.title": "And much more",
     "solutions.more.desc": "More software solutions and apps delivered for our clients. Let's talk about yours.",
@@ -242,6 +246,8 @@ const I18N = {
     "contact.send": "Send message",
     "news.label": "📨 Stay in the loop — news & tech tips",
     "news.btn": "Subscribe",
+    "chat.status": "Online · we reply fast",
+    "chat.greeting": "👋 Hi! A question about your project? Message us here and we'll reply directly.",
     "footer.rights": "© 2026 NOVÆ Systems — Software development · Canada. All rights reserved."
   }
 };
