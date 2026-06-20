@@ -187,7 +187,7 @@
       const body = encodeURIComponent(
         (data.get("message") || "") + "\n\n— " + (data.get("name") || "") + " (" + (data.get("email") || "") + ")"
       );
-      window.location.href = `mailto:novicmelataguia@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:contact@novae-systems.ca?subject=${subject}&body=${body}`;
       return;
     }
 

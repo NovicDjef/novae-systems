@@ -56,6 +56,12 @@
 .bpost__body li::before{content:"";position:absolute;left:4px;top:9px;width:8px;height:8px;border-radius:50%;background:var(--accent,var(--cyan))}
 .bpost__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:44px;padding-top:32px;border-top:1px solid var(--glass-brd)}
 
+/* ---------- Adresses email pro ---------- */
+.contact__emails{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin-top:26px}
+.contact__emails a{font-family:var(--ff-head);font-size:14px;letter-spacing:.5px;color:var(--muted);transition:.25s;position:relative}
+.contact__emails a b{color:var(--cyan);font-weight:700}
+.contact__emails a:hover{color:var(--text);text-shadow:0 0 18px rgba(0,240,255,.35)}
+
 /* ---------- Statut formulaire de contact ---------- */
 .contact__status{grid-column:1/-1;text-align:center;font-size:14px;margin-top:6px;min-height:20px}
 .contact__status.is-ok{color:#22e07a}
