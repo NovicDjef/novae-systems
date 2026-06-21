@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Étude de cas projet — NOVÆ Systems, agence de développement web, mobile et logiciel." />
+  <title>Projet — NOVÆ Systems</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070a12'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%230453f1' font-family='Arial'%3E%E2%97%88%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+  <link rel="stylesheet" href="../css/extras.css" />
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="noise"></div>
+
+  <header class="nav is-scrolled" id="nav">
+    <a href="../index.html" class="nav__logo"><span class="nav__logo-mark">◈</span><span class="nav__logo-text">NOVÆ<small>SYSTEMS</small></span></a>
+    <nav class="nav__links">
+      <a href="../index.html#solutions">Solutions</a>
+      <a href="../index.html#contact" class="nav__cta">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang-switch" id="langSwitch" aria-label="Changer de langue">
+        <span class="lang-switch__opt is-active" data-lang="fr">FR</span><span class="lang-switch__sep">/</span><span class="lang-switch__opt" data-lang="en">EN</span>
+      </button>
+    </div>
+  </header>
+  <a href="../index.html#solutions" class="pd-back" id="projetBack">← Tous les projets</a>
+
+  <main id="projetRoot"><!-- injecté par projet-page.js --></main>
+
+  <footer class="footer">
+    <div class="footer__brand"><span class="nav__logo-mark">◈</span> NOVÆ SYSTEMS</div>
+    <p>© 2026 NOVÆ Systems — Développement logiciel · Sept-Îles, Québec, Canada.</p>
+    <div class="footer__socials"><a href="../index.html#solutions">Projets</a><a href="../index.html#contact">Contact</a></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/projets-data.js"></script>
+  <script src="../js/scene.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/projet-page.js"></script>
+</body>
+</html>

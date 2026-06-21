@@ -112,6 +112,37 @@
 .contact__details a{color:var(--muted);transition:.25s}
 .contact__details a:hover{color:var(--cyan);text-shadow:var(--glow-cyan)}
 
+/* ---------- Bandeau cookies ---------- */
+.cookie{position:fixed;left:22px;bottom:22px;z-index:940;width:min(380px,calc(100vw - 44px));padding:18px 20px;border-radius:16px;background:rgba(10,14,26,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--glass-brd);box-shadow:0 24px 50px rgba(0,0,0,.5);opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .4s,transform .4s}
+.cookie.is-open{opacity:1;transform:none;pointer-events:auto}
+.cookie__text{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.cookie__row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cookie__link{font-size:12px;color:var(--cyan);white-space:nowrap}
+.cookie__actions{display:flex;gap:8px}
+.cookie__actions .btn{padding:9px 16px;font-size:13px}
+@media (max-width:520px){.cookie{left:12px;right:12px;bottom:12px;width:auto}}
+
+/* ---------- Double liens des cartes projet ---------- */
+.project__links{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.project__links .project__link{margin-top:0}
+.project__link--alt{color:var(--muted)}
+.project__link--alt:hover{color:var(--cyan)}
+
+/* ---------- Tarifs / Forfaits ---------- */
+.pricing__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;align-items:stretch}
+.price{position:relative;padding:36px 28px;border-radius:20px;background:var(--glass);border:1px solid var(--glass-brd);transition:.4s;display:flex;flex-direction:column}
+.price:hover{transform:translateY(-6px);border-color:rgba(4,83,241,.4);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.price--featured{border-color:rgba(4,83,241,.55);box-shadow:0 0 50px rgba(4,83,241,.18)}
+.price__badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);color:#04050a;font-family:var(--ff-head);font-size:11px;letter-spacing:1px;padding:5px 14px;border-radius:99px;white-space:nowrap}
+.price__name{font-family:var(--ff-head);font-size:20px;margin-bottom:14px}
+.price__amount{display:flex;flex-direction:column;gap:2px;margin-bottom:18px}
+.price__amount small{color:var(--muted);font-size:12px}
+.price__amount b{font-family:var(--ff-head);font-size:34px;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price__desc{color:var(--muted);font-size:14px;margin-bottom:18px}
+.price__list{list-style:none;display:grid;gap:11px;margin-bottom:24px;flex:1}
+.price__list li{position:relative;padding-left:26px;font-size:14px;color:var(--text)}
+.price__list li::before{content:"";position:absolute;left:2px;top:5px;width:13px;height:8px;border-left:2px solid var(--cyan);border-bottom:2px solid var(--cyan);transform:rotate(-45deg)}
+
 /* ---------- Équipe / Fondateur ---------- */
 .team__grid{display:flex;justify-content:center}
 .member{max-width:520px;text-align:center;padding:40px 34px;border-radius:22px;background:var(--glass);border:1px solid var(--glass-brd);transition:.4s}
