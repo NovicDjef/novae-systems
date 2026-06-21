@@ -152,6 +152,7 @@
 .member__name{font-family:var(--ff-head);font-size:23px;margin-bottom:6px}
 .member__role{display:inline-block;font-size:14px;color:var(--cyan);margin-bottom:16px}
 .member__bio{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:22px}
+.member__cta{margin-bottom:18px}
 .member__socials{display:flex;justify-content:center;gap:12px}
 .member__socials a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--glass);border:1px solid var(--glass-brd);color:var(--muted);transition:.3s}
 .member__socials a:hover{color:var(--cyan);border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 0 16px rgba(4,83,241,.4)}
