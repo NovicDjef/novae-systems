@@ -99,6 +99,7 @@
     // Filet : si IntersectionObserver indisponible, on affiche tout
     if (!("IntersectionObserver" in window)) {
       document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+      document.querySelectorAll(".kinetic").forEach((el) => el.classList.add("in"));
       runCounters();
       return;
     }
@@ -114,6 +115,17 @@
       el.style.transitionDelay = (i % 6) * 0.06 + "s";
       io.observe(el);
     });
+
+    // Titres "kinetic" : visibles tout de suite s'ils sont déjà à l'écran,
+    // sinon révélés au scroll. + filet de sécurité (jamais bloqués).
+    const kio = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); kio.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".kinetic").forEach((el) => {
+      if (el.getBoundingClientRect().top < (innerHeight * 0.95)) el.classList.add("in");
+      else kio.observe(el);
+    });
+    setTimeout(() => document.querySelectorAll(".kinetic:not(.in)").forEach((el) => el.classList.add("in")), 2500);
 
     // counters
     const heroStats = document.querySelector(".hero__stats");

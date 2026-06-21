@@ -17,10 +17,10 @@
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setSize(innerWidth, innerHeight);
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
 
   // ---------- Particle field ----------
-  const COUNT = innerWidth < 768 ? 1400 : 2600;
+  const COUNT = innerWidth < 768 ? 800 : 1500;
   const positions = new Float32Array(COUNT * 3);
   const speeds = new Float32Array(COUNT);
   for (let i = 0; i < COUNT; i++) {

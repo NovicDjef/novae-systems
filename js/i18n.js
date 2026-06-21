@@ -3,7 +3,7 @@
  ========================================================= */
 const I18N = {
  fr: {
- "meta.desc": "NOVÆ Systems — Studio de développement logiciel à Sept-Îles (Québec, Canada). Applications mobiles iOS/Android, plateformes SaaS, IA & automatisation. Solutions déjà en production.",
+ "meta.desc": "Agence de développement web, mobile et logiciel à Sept-Îles (Québec, Canada). Création de site internet, applications mobiles iOS & Android, plateformes SaaS, automatisation et chatbots IA. Devis gratuit.",
  "nav.services": "Services",
  "nav.solutions": "Solutions",
  "nav.testi": "Avis",
@@ -69,6 +69,7 @@ const I18N = {
  "solutions.flag.ui.voice": "Note vocale IA · SOAP",
  "solutions.p2.chip": "Web · Bien-être", "solutions.p2.title": "Spa Renaissance", "solutions.p2.desc": "Portail web de réservation et de gestion pour le centre de bien-être Spa Renaissance.",
  "solutions.jt.chip": "Web · Logistique", "solutions.jt.title": "JT Trade and Services", "solutions.jt.desc": "Site vitrine pour une entreprise d'import-export et de logistique internationale (Afrique ↔ Monde), avec simulateur de devis.",
+ "solutions.nd.chip": "Portfolio · Web", "solutions.nd.title": "novic.dev", "solutions.nd.desc": "Portfolio de développeur : présentation des compétences, de l'expertise et des réalisations, avec des animations soignées.",
  "solutions.visit": "Visiter le site →",
  "solutions.more.title": "Et bien plus",
  "solutions.more.desc": "D'autres solutions logicielles et applications livrées pour nos clients. Parlons de la vôtre.",
@@ -136,7 +137,7 @@ const I18N = {
  "footer.rights": "© 2026 NOVÆ Systems — Développement logiciel · Sept-Îles, Québec, Canada. Tous droits réservés."
  },
  en: {
- "meta.desc": "NOVÆ Systems — Software development studio in Sept-Îles (Quebec, Canada). iOS/Android mobile apps, SaaS platforms, AI & automation. Solutions already in production.",
+ "meta.desc": "Web, mobile and software development agency in Sept-Îles (Quebec, Canada). Websites, iOS & Android apps, SaaS platforms, automation and AI chatbots. Free quote.",
  "nav.services": "Services",
  "nav.solutions": "Solutions",
  "nav.testi": "Reviews",
@@ -202,6 +203,7 @@ const I18N = {
  "solutions.flag.ui.voice": "AI voice note · SOAP",
  "solutions.p2.chip": "Web · Wellness", "solutions.p2.title": "Spa Renaissance", "solutions.p2.desc": "Web booking and management portal for the Spa Renaissance wellness center.",
  "solutions.jt.chip": "Web · Logistics", "solutions.jt.title": "JT Trade and Services", "solutions.jt.desc": "Showcase website for an import-export and international logistics company (Africa ↔ World), with a quote simulator.",
+ "solutions.nd.chip": "Portfolio · Web", "solutions.nd.title": "novic.dev", "solutions.nd.desc": "Developer portfolio: skills, expertise and work, with polished animations.",
  "solutions.visit": "Visit the site →",
  "solutions.more.title": "And much more",
  "solutions.more.desc": "More software solutions and apps delivered for our clients. Let's talk about yours.",

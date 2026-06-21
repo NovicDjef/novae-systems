@@ -3,8 +3,8 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <meta name="description" data-i18n="meta.desc" content="NOVÆ Systems — Agence de développement logiciel au Canada. Solutions sur mesure, applications mobiles et plateformes SaaS du futur." />
- <title>NOVÆ Systems — Architectes du logiciel de demain</title>
+ <meta name="description" data-i18n="meta.desc" content="Agence de développement web, mobile et logiciel à Sept-Îles (Québec, Canada). Création de site internet, applications mobiles iOS & Android, plateformes SaaS, automatisation et chatbots IA. Devis gratuit." />
+ <title>Agence de développement web, mobile & logiciel | Création site internet, app iOS/Android, IA & automatisation — NOVÆ Systems (Sept-Îles, Québec)</title>
  <link rel="canonical" href="https://novae-systems.ca/" />
 
  <!-- Open Graph / partages (WhatsApp, LinkedIn, Facebook) -->
@@ -23,7 +23,7 @@
  <!-- SEO -->
  <meta name="author" content="NOVÆ Systems" />
  <meta name="robots" content="index, follow, max-image-preview:large" />
- <meta name="keywords" content="développement logiciel, application mobile, SaaS, intelligence artificielle, automatisation, Sept-Îles, Québec, Canada, agence logicielle, iOS, Android, web, cloud" />
+ <meta name="keywords" content="agence de développement web, création site internet, développement web, développeur web, développeur mobile, application mobile, application android, application iOS, développement application mobile, site web, site internet, solution digitale, logiciel sur mesure, plateforme SaaS, automatisation, automatisation IA, intelligence artificielle, chatbot IA, agent IA, agence digitale, Sept-Îles, Québec, Canada" />
  <meta name="theme-color" content="#0453f1" />
  <meta name="geo.region" content="CA-QC" />
  <meta name="geo.placename" content="Sept-Îles" />
@@ -51,10 +51,38 @@
    "knowsAbout": ["Développement logiciel", "Applications mobiles", "SaaS", "Intelligence artificielle", "Automatisation", "Cloud", "DevOps", "UX/UI Design"],
    "inLanguage": ["fr-CA", "en-CA"],
    "geo": { "@type": "GeoCoordinates", "latitude": 50.2167, "longitude": -66.3833 },
+   "slogan": "Agence de développement web, mobile et logiciel",
+   "hasOfferCatalog": {
+     "@type": "OfferCatalog",
+     "name": "Services de développement",
+     "itemListElement": [
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Création de site internet / site web" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Développement d'application mobile iOS & Android" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plateforme web & SaaS sur mesure" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intelligence artificielle & automatisation" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chatbot IA & agents intelligents" } },
+       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logiciel sur mesure" } }
+     ]
+   },
    "sameAs": [
      "https://www.linkedin.com/in/n-d-melataguia-tonleu/",
      "https://github.com/NovicDjef",
      "https://x.com/NovicDjef/"
+   ]
+ }
+ </script>
+
+ <!-- Données structurées FAQ (résultats enrichis Google) -->
+ <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+     { "@type": "Question", "name": "Combien de temps prend un projet de site web ou d'application ?", "acceptedAnswer": { "@type": "Answer", "text": "Cela dépend du périmètre. Un MVP fonctionnel prend généralement de 4 à 10 semaines. On avance par sprints, donc vous voyez des résultats concrets dès les premières semaines." } },
+     { "@type": "Question", "name": "Combien coûte un site internet ou une application mobile ?", "acceptedAnswer": { "@type": "Answer", "text": "Chaque projet est unique. Après un premier échange gratuit, on vous remet une estimation claire. On s'adapte à votre budget (à partir de 2 500 $) et on priorise ce qui a le plus de valeur." } },
+     { "@type": "Question", "name": "À qui appartient le code ?", "acceptedAnswer": { "@type": "Answer", "text": "À vous, à 100 %. Vous êtes propriétaire de l'intégralité du code source et des accès une fois le projet livré." } },
+     { "@type": "Question", "name": "Assurez-vous la maintenance et le support ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. On propose un suivi après lancement : corrections, mises à jour, supervision et nouvelles fonctionnalités selon vos besoins." } },
+     { "@type": "Question", "name": "Travaillez-vous avec des clients hors du Canada ?", "acceptedAnswer": { "@type": "Answer", "text": "Absolument. On accompagne des clients au Canada comme à l'international, en français et en anglais, à distance et en toute transparence." } }
    ]
  }
  </script>
@@ -78,6 +106,9 @@
  <div class="preloader__bar"><span></span></div>
  <p class="preloader__pct" id="preloaderPct">0%</p>
  </div>
+
+ <!-- Barre de progression de lecture -->
+ <div class="scroll-progress" id="scrollProgress"></div>
 
  <!-- Curseur personnalisé -->
  <div class="cursor" id="cursor"></div>
@@ -225,11 +256,11 @@
  </div>
  </div>
  <div class="feature__visual">
- <div class="phone" id="planeviaPhone" data-shots="assets/planevia/1.png,assets/planevia/2.png,assets/planevia/4.png,assets/planevia/8.png,assets/planevia/10.png,assets/planevia/9.png">
- <div class="phone__notch"></div>
- <div class="phone__screen phone__screen--img">
- <img id="planeviaShot" src="assets/planevia/1.png" alt="Aperçu de l'application Planevia" />
- </div>
+ <div class="pv-devices">
+ <img class="pv-laptop" src="assets/planevia/desktop-calendar.png" alt="Planevia — calendrier sur ordinateur" loading="lazy" />
+ <div class="pv-phone"><img src="assets/planevia/mobile-calendar.png" alt="Planevia — application mobile" loading="lazy" /></div>
+ <span class="pv-badge pv-badge--top"><i></i> +12 réservations aujourd'hui</span>
+ <span class="pv-badge pv-badge--mid">12+ modules pro</span>
  </div>
  </div>
  </article>
@@ -254,11 +285,15 @@
  </div>
  </div>
  <div class="feature__visual">
+ <div class="rc-devices">
  <div class="phone" id="raphyPhone" data-shots="assets/raphycar/home.png,assets/raphycar/vehicle-detail.png,assets/raphycar/reservation.png,assets/raphycar/dashboard.png,assets/raphycar/subscription.png,assets/raphycar/account-type.png">
  <div class="phone__notch"></div>
  <div class="phone__screen phone__screen--img">
  <img id="raphyShot" src="assets/raphycar/home.png" alt="Aperçu de l'application RaphyCar" />
  </div>
+ </div>
+ <span class="rc-badge rc-badge--top"><i></i> Nouvelle réservation · il y a 2 min</span>
+ <span class="rc-badge rc-badge--bot"><b>+120</b> nouveaux inscrits ce mois</span>
  </div>
  </div>
  </article>
@@ -281,6 +316,15 @@
  <p data-i18n="solutions.jt.desc">Site vitrine pour une entreprise d'import-export et de logistique internationale (Afrique ↔ Monde), avec simulateur de devis.</p>
  <div class="project__tags"><span>Web</span><span>Simulateur</span><span>Multi-pays</span></div>
  <a href="https://jttradeservices.com" target="_blank" rel="noopener" class="project__link" data-i18n="solutions.visit">Visiter le site →</a>
+ </div>
+ </article>
+ <article class="project reveal">
+ <div class="project__visual project__visual--photo" style="background-image:url('assets/novic/hero.jpg')"><span class="project__chip" data-i18n="solutions.nd.chip">Portfolio · Web</span></div>
+ <div class="project__body">
+ <h3 data-i18n="solutions.nd.title">novic.dev</h3>
+ <p data-i18n="solutions.nd.desc">Portfolio de développeur : présentation des compétences, de l'expertise et des réalisations, avec des animations soignées.</p>
+ <div class="project__tags"><span>Web</span><span>Portfolio</span><span>Animations</span></div>
+ <a href="https://novic.dev" target="_blank" rel="noopener" class="project__link" data-i18n="solutions.visit">Visiter le site →</a>
  </div>
  </article>
  <article class="project project--ghost reveal">
@@ -429,8 +473,6 @@
  </form>
  <div class="contact__emails">
  <a href="mailto:contact@novae-systems.ca"><b>contact@</b>novae-systems.ca</a>
- <a href="mailto:info@novae-systems.ca"><b>info@</b>novae-systems.ca</a>
- <a href="mailto:support@novae-systems.ca"><b>support@</b>novae-systems.ca</a>
  </div>
  <div class="contact__details">
  <a href="tel:+14183507343">418-350-7343</a>
@@ -481,7 +523,7 @@
  <form class="pvchat__form" id="pvchatForm">
  <div class="pvchat__id" id="pvchatId">
  <input type="text" name="name" placeholder="Votre nom" autocomplete="name" />
- <input type="email" name="email" placeholder="Courriel (optionnel)" autocomplete="email" />
+ <input type="email" name="email" placeholder="Votre courriel (requis)" autocomplete="email" />
  </div>
  <div class="pvchat__inputrow">
  <input type="text" name="content" id="pvchatInput" placeholder="Votre message…" autocomplete="off" required />
@@ -498,5 +540,6 @@
  <script src="js/blog.js"></script>
  <script src="js/chat.js"></script>
  <script src="js/car.js"></script>
+ <script src="js/premium.js"></script>
 </body>
 </html>

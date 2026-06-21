@@ -205,6 +205,16 @@ body::before{
 
 /* phone mockup */
 .feature__visual{display:grid;place-items:center;position:relative}
+/* Composition MacBook + téléphone (Planevia) */
+.pv-devices{position:relative;width:100%;max-width:600px;animation:float 7s ease-in-out infinite}
+.pv-laptop{width:100%;height:auto;display:block;filter:drop-shadow(0 34px 64px rgba(0,0,0,.55)) drop-shadow(0 0 44px rgba(4,83,241,.18))}
+.pv-phone{position:absolute;right:-3%;bottom:-7%;width:27%;border-radius:20px;background:#0a0e1c;border:2px solid rgba(255,255,255,.14);padding:5px;box-shadow:0 26px 54px rgba(0,0,0,.6),0 0 40px rgba(4,83,241,.32)}
+.pv-phone img{width:100%;border-radius:15px;display:block}
+.pv-badge{position:absolute;display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:99px;font-size:12.5px;font-weight:600;background:rgba(10,14,26,.82);backdrop-filter:blur(8px);border:1px solid var(--glass-brd);color:var(--text);white-space:nowrap;box-shadow:0 12px 28px rgba(0,0,0,.45)}
+.pv-badge--top{top:6%;left:-3%;color:#bdf5d8}
+.pv-badge--top i{width:8px;height:8px;border-radius:50%;background:#22e07a;box-shadow:0 0 10px #22e07a}
+.pv-badge--mid{top:44%;left:-7%;background:linear-gradient(120deg,#0453f1,#8b5cf6);color:#fff;border-color:transparent}
+@media (max-width:520px){.pv-badge{font-size:10px;padding:6px 10px}}
 .phone{position:relative;width:268px;height:546px;border-radius:42px;background:linear-gradient(160deg,#1a1f2e,#0a0d16);border:2px solid rgba(255,255,255,.12);box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 60px rgba(4,83,241,.18);padding:12px;animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-14px)}}
 .phone__notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:96px;height:24px;background:#05060a;border-radius:0 0 16px 16px;z-index:3}
@@ -240,8 +250,22 @@ body::before{
 
 /* real screenshot inside the phone */
 .phone__screen--img{padding:0;background:#fff}
-.phone__screen--img img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;animation:shotFade .6s ease}
-@keyframes shotFade{from{opacity:.35;transform:scale(1.015)}to{opacity:1;transform:none}}
+.phone__screen--img img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;animation:shotSlide .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes shotSlide{from{opacity:0;transform:translateX(16px) scale(1.02)}to{opacity:1;transform:none}}
+
+/* Téléphone RaphyCar + badges flottants (façon raphycar.ca) */
+.rc-devices{position:relative;display:inline-block;animation:float 6.5s ease-in-out infinite}
+.rc-devices .phone{animation:none}
+.rc-badge{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:14px;font-size:12.5px;font-weight:600;background:rgba(255,255,255,.96);color:#0d1424;white-space:nowrap;box-shadow:0 16px 36px rgba(0,0,0,.4)}
+.rc-badge i{width:20px;height:20px;border-radius:50%;background:#d6f5e3;position:relative;flex:0 0 auto}
+.rc-badge i::before,.rc-badge i::after{content:"";position:absolute;background:#1faa55;border-radius:2px;top:50%;left:50%}
+.rc-badge i::before{width:9px;height:2px;transform:translate(-50%,-50%)}
+.rc-badge i::after{width:2px;height:9px;transform:translate(-50%,-50%)}
+.rc-badge b{color:var(--magenta);font-family:var(--ff-head)}
+.rc-badge--top{top:16%;left:-26%}
+.rc-badge--bot{bottom:12%;right:-22%}
+@media (max-width:1100px){.rc-badge--top{left:-8%}.rc-badge--bot{right:-6%}}
+@media (max-width:860px){.rc-badge{font-size:11px;padding:7px 10px}.rc-badge--top{left:0}.rc-badge--bot{right:0}}
 
 /* screenshot gallery */
 .shots{margin-top:14px}

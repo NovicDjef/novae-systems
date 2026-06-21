@@ -107,13 +107,24 @@
     const visitorName = (fd.get("name") || "").toString().trim();
     const visitorEmail = (fd.get("email") || "").toString().trim();
 
+    // Email obligatoire au 1er message (pour pouvoir relancer le client)
+    const emailEl = idBox ? idBox.querySelector('input[name="email"]') : null;
+    if (!hasSent && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(visitorEmail)) {
+      if (emailEl) { emailEl.classList.add("pvchat__err"); emailEl.focus(); }
+      addBubble(en()
+        ? "Please enter your email so we can get back to you."
+        : "Entrez votre courriel pour qu'on puisse vous répondre.", "admin");
+      return;
+    }
+    if (emailEl) emailEl.classList.remove("pvchat__err");
+
     addBubble(content, "visitor");
     input.value = "";
 
     const payload = { sessionId, content, sender: "visitor" };
     if (!hasSent) {
       if (visitorName) payload.visitorName = visitorName;
-      if (visitorEmail) payload.visitorEmail = visitorEmail;
+      payload.visitorEmail = visitorEmail;
     }
 
     try {

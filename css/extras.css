@@ -112,6 +112,9 @@
 .contact__details a{color:var(--muted);transition:.25s}
 .contact__details a:hover{color:var(--cyan);text-shadow:var(--glow-cyan)}
 
+/* ---------- Barre de progression de lecture ---------- */
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:950;background:var(--grad);transform:scaleX(0);transform-origin:0 50%;will-change:transform}
+
 /* ---------- Vitrine 3D des apps (hero) ---------- */
 .hero__stage{perspective:1200px}
 .showcase{position:relative;width:100%;height:100%;transform-style:preserve-3d}
@@ -175,6 +178,7 @@
 .pvchat__form{padding:12px;border-top:1px solid #eceef2;background:#fff}
 .pvchat__id{display:flex;gap:8px;margin-bottom:8px}
 .pvchat__id input{flex:1;min-width:0;border:1px solid #e3e6ec;border-radius:10px;padding:9px 11px;font-size:13px;color:#0f172a;outline:none;font-family:var(--ff-body)}
+.pvchat__id input.pvchat__err{border-color:#ff5b6b;box-shadow:0 0 0 3px rgba(255,91,107,.18)}
 .pvchat__id input:focus{border-color:var(--pv)}
 .pvchat__inputrow{display:flex;gap:8px;align-items:center}
 .pvchat__inputrow input{flex:1;border:1px solid #e3e6ec;border-radius:12px;padding:12px 14px;font-size:14px;color:#0f172a;outline:none;font-family:var(--ff-body)}
