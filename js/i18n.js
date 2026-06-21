@@ -88,6 +88,11 @@ const I18N = {
  "about.l2": "Plusieurs solutions déjà en production",
  "about.l3": "Expertise mobile, web, cloud & IA",
  "about.l4": "Approche sur mesure, du concept au lancement",
+ "team.tag": "// L'équipe",
+ "team.title": "Le fondateur",
+ "team.lead": "Une expertise réelle derrière chaque ligne de code.",
+ "team.role": "Fondateur & développeur principal",
+ "team.bio": "Développeur logiciel passionné, spécialisé en web, mobile et intelligence artificielle. De l'idée à la mise en production, je conçois des solutions fiables, performantes et soignées pour les entreprises comme pour les particuliers.",
  "trust.t1": "Note App Store",
  "trust.t2": "Clients gérés",
  "trust.t3": "Apps en production (iOS · Android)",
@@ -137,7 +142,7 @@ const I18N = {
  "news.btn": "S'inscrire",
  "chat.status": "En ligne · on répond vite",
  "chat.greeting": "Bonjour ! Une question sur votre projet ? Écrivez-nous ici, on vous répond directement.",
- "footer.rights": "© 2026 NOVÆ Systems — Développement logiciel · Sept-Îles, Québec, Canada. Tous droits réservés."
+ "footer.rights": "© 2026 NOVÆ Systems — Développement logiciel · Sept-Îles, Québec, Canada. Tous droits réservés.", "footer.legal": "Mentions légales", "footer.privacy": "Confidentialité"
  },
  en: {
  "meta.desc": "Web, mobile and software development agency in Sept-Îles (Quebec, Canada). Websites, iOS & Android apps, SaaS platforms, automation and AI chatbots. Free quote.",
@@ -225,6 +230,11 @@ const I18N = {
  "about.l2": "Several solutions already in production",
  "about.l3": "Mobile, web, cloud & AI expertise",
  "about.l4": "Tailored approach, from concept to launch",
+ "team.tag": "// The team",
+ "team.title": "The founder",
+ "team.lead": "Real expertise behind every line of code.",
+ "team.role": "Founder & lead developer",
+ "team.bio": "Passionate software developer specialized in web, mobile and AI. From idea to production, I build reliable, high-performance, polished solutions for businesses and individuals.",
  "trust.t1": "App Store rating",
  "trust.t2": "Clients managed",
  "trust.t3": "Apps in production (iOS · Android)",
