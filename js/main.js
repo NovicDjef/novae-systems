@@ -240,6 +240,15 @@
     return json;
   }
 
+  /* Modal de confirmation */
+  const modal = document.getElementById("successModal");
+  function openModal() { if (modal) { modal.classList.add("is-open"); modal.setAttribute("aria-hidden", "false"); } }
+  function closeModal() { if (modal) { modal.classList.remove("is-open"); modal.setAttribute("aria-hidden", "true"); } }
+  if (modal) {
+    modal.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", closeModal));
+    addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+  }
+
   /* Formulaire de devis → /api/quotes */
   const form = document.getElementById("contactForm");
   const status = document.getElementById("contactStatus");
@@ -271,7 +280,8 @@
     try {
       await postJSON(PLANEVIA_QUOTES, payload);
       form.reset();
-      setStatus(status, "ok", en ? "Quote request sent — we reply within 24h. Thank you!" : "Demande de devis envoyée — réponse sous 24 h. Merci !");
+      setStatus(status, "ok", "");
+      openModal();
     } catch (err) {
       const subject = encodeURIComponent("Demande de devis — " + full);
       const body = encodeURIComponent(message + "\n\n— " + full + " (" + payload.email + (payload.phone ? ", " + payload.phone : "") + ")");

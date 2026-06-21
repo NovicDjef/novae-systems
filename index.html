@@ -469,7 +469,7 @@
  <div class="field field--sel"><select name="budget"><option value="" disabled selected data-i18n="contact.budget">Budget estimé</option><option>2 500 – 5 000 $</option><option>5 000 – 15 000 $</option><option>15 000 – 40 000 $</option><option>&gt; 40 000 $</option><option data-i18n="contact.tbd">À discuter</option></select></div>
  <div class="field field--full"><textarea name="message" rows="4" required></textarea><label data-i18n="contact.msg">Décrivez votre projet</label></div>
  <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.send">Recevoir mon devis gratuit</button>
- <a href="https://calendly.com/VOTRE-LIEN" target="_blank" rel="noopener" class="btn btn--ghost btn--full" id="bookCall" data-i18n="contact.call">Ou réserver un appel découverte</a>
+ <a href="tel:+14183507343" class="btn btn--ghost btn--full" id="bookCall" data-i18n="contact.call">Appelez-nous : 418-350-7343</a>
  <p class="contact__status" id="contactStatus" role="status"></p>
  </form>
  <div class="contact__emails">
@@ -531,6 +531,18 @@
  <button type="submit" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>
  </div>
  </form>
+ </div>
+
+ <!-- Modal de confirmation (envoi du devis) -->
+ <div class="modal" id="successModal" aria-hidden="true">
+ <div class="modal__backdrop" data-close></div>
+ <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <button class="modal__close" data-close aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+ <div class="modal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+ <h3 class="modal__title" id="modalTitle" data-i18n="modal.title">Demande envoyée !</h3>
+ <p class="modal__text" data-i18n="modal.text">Votre demande de devis a bien été transmise à NOVÆ Systems. Notre équipe vous répond sous 24 h.</p>
+ <button class="btn btn--primary" data-close data-i18n="modal.ok">Parfait</button>
+ </div>
  </div>
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
