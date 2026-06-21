@@ -145,6 +145,18 @@
 
 /* ---------- Équipe / Fondateur ---------- */
 .team__grid{display:flex;justify-content:center}
+.team__layout{display:grid;grid-template-columns:minmax(320px,370px) 1fr;gap:28px;align-items:start;max-width:1020px;margin:0 auto}
+.team__layout .member{max-width:none}
+.expertise__title{font-family:var(--ff-head);font-size:18px;margin-bottom:18px;color:var(--text)}
+.expertise__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.exp{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-brd);transition:.3s}
+.exp:hover{border-color:rgba(4,83,241,.4);transform:translateY(-3px)}
+.exp__ico{flex-shrink:0;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:rgba(4,83,241,.12);color:var(--cyan)}
+.exp__ico svg{width:20px;height:20px}
+.exp h4{font-size:15px;margin-bottom:4px;font-family:var(--ff-head)}
+.exp p{font-size:13px;color:var(--muted);line-height:1.5}
+.expertise__net{margin-top:18px;font-size:14px;color:var(--cyan)}
+@media (max-width:860px){.team__layout{grid-template-columns:1fr}.expertise__grid{grid-template-columns:1fr}}
 .member{max-width:520px;text-align:center;padding:40px 34px;border-radius:22px;background:var(--glass);border:1px solid var(--glass-brd);transition:.4s}
 .member:hover{border-color:rgba(4,83,241,.4);box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .member__avatar{width:118px;height:118px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;font-family:var(--ff-head);font-size:40px;font-weight:900;color:#fff;background:var(--grad);box-shadow:0 0 48px rgba(4,83,241,.4)}
