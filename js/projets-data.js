@@ -74,7 +74,7 @@ const PROJETS = {
     stack: ["React", "Next.js", "Three.js", "TypeScript", "Animations"],
     fr: {
       chip: "Portfolio · Web", name: "novic.dev", tagline: "Le portfolio d'un développeur, en immersion.",
-      overview: "Portfolio personnel immersif présentant les compétences, l'expertise et les réalisations de Novic Tonleu, avec une scène 3D et des animations soignées.",
+      overview: "Portfolio personnel immersif présentant les compétences, l'expertise et les réalisations de Novic Melataguia, avec une scène 3D et des animations soignées.",
       problemTitle: "L'objectif", problem: "Se démarquer en tant que développeur avec un site mémorable, technique et impressionnant, qui démontre le savoir-faire par l'exemple.",
       points: ["Scène 3D interactive (Three.js)", "Animations fluides et soignées", "Sections projets, à propos, articles, contact", "Bilingue et entièrement responsive"],
       compoTitle: "Comment c'est construit", compo: [
@@ -86,7 +86,7 @@ const PROJETS = {
     },
     en: {
       chip: "Portfolio · Web", name: "novic.dev", tagline: "A developer's portfolio, fully immersive.",
-      overview: "Immersive personal portfolio showcasing the skills, expertise and work of Novic Tonleu, with a 3D scene and polished animations.",
+      overview: "Immersive personal portfolio showcasing the skills, expertise and work of Novic Melataguia, with a 3D scene and polished animations.",
       problemTitle: "The goal", problem: "Stand out as a developer with a memorable, technical and impressive site that proves craftsmanship by example.",
       points: ["Interactive 3D scene (Three.js)", "Smooth, polished animations", "Projects, about, articles, contact sections", "Bilingual and fully responsive"],
       compoTitle: "How it's built", compo: [
