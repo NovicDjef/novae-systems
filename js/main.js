@@ -4,24 +4,30 @@
 (function () {
   "use strict";
 
-  /* ---------- Preloader ---------- */
+  /* ---------- Preloader (robuste : ne reste jamais bloqué) ---------- */
   const preloader = document.getElementById("preloader");
   const bar = preloader && preloader.querySelector(".preloader__bar span");
   const pct = document.getElementById("preloaderPct");
-  let p = 0;
+  let p = 0, hidden = false;
+  function hidePreloader() {
+    if (hidden) return;
+    hidden = true;
+    if (preloader) preloader.classList.add("is-done");
+    document.body.classList.add("loaded");
+    initReveal();
+  }
   const fill = setInterval(() => {
     p = Math.min(100, p + Math.random() * 18);
     if (bar) bar.style.width = p + "%";
     if (pct) pct.textContent = Math.floor(p) + "%";
-    if (p >= 100) {
-      clearInterval(fill);
-      setTimeout(() => {
-        preloader.classList.add("is-done");
-        document.body.classList.add("loaded");
-        initReveal();
-      }, 350);
-    }
+    if (p >= 100) { clearInterval(fill); setTimeout(hidePreloader, 350); }
   }, 130);
+  // Filets de sécurité (mobile / connexion lente / erreur JS) :
+  addEventListener("load", () => setTimeout(hidePreloader, 500));
+  setTimeout(hidePreloader, 4000);
+  // Le contenu se révèle tout de suite, indépendamment du préchargeur :
+  if (document.readyState !== "loading") initReveal();
+  else addEventListener("DOMContentLoaded", initReveal);
 
   /* ---------- i18n ---------- */
   const langSwitch = document.getElementById("langSwitch");
@@ -86,8 +92,16 @@
   );
 
   /* ---------- Reveal on scroll ---------- */
-  let countersDone = false;
+  let countersDone = false, revealReady = false;
   function initReveal() {
+    if (revealReady) return; // idempotent
+    revealReady = true;
+    // Filet : si IntersectionObserver indisponible, on affiche tout
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+      runCounters();
+      return;
+    }
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
         if (en.isIntersecting) {

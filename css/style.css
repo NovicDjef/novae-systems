@@ -304,4 +304,7 @@ body::before{
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
+  /* le préchargeur reste fonctionnel (sinon il a l'air gelé) */
+  .preloader__ring{animation:spin 1.1s linear infinite!important}
+  .preloader.is-done{transition:opacity .4s ease!important}
 }
