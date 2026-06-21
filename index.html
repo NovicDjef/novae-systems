@@ -27,6 +27,9 @@
  <meta name="theme-color" content="#0453f1" />
  <meta name="geo.region" content="CA-QC" />
  <meta name="geo.placename" content="Sept-Îles" />
+ <meta name="geo.position" content="50.2167;-66.3833" />
+ <meta name="ICBM" content="50.2167, -66.3833" />
+ <meta property="og:locale:alternate" content="en_CA" />
  <link rel="alternate" hreflang="fr-CA" href="https://novae-systems.ca/" />
  <link rel="alternate" hreflang="x-default" href="https://novae-systems.ca/" />
 
@@ -46,6 +49,8 @@
    "address": { "@type": "PostalAddress", "addressLocality": "Sept-Îles", "addressRegion": "QC", "addressCountry": "CA" },
    "areaServed": ["Canada", "International"],
    "knowsAbout": ["Développement logiciel", "Applications mobiles", "SaaS", "Intelligence artificielle", "Automatisation", "Cloud", "DevOps", "UX/UI Design"],
+   "inLanguage": ["fr-CA", "en-CA"],
+   "geo": { "@type": "GeoCoordinates", "latitude": 50.2167, "longitude": -66.3833 },
    "sameAs": [
      "https://www.linkedin.com/in/n-d-melataguia-tonleu/",
      "https://github.com/NovicDjef",
@@ -413,8 +418,13 @@
  <form class="contact__form" id="contactForm">
  <div class="field"><input type="text" name="name" required /><label data-i18n="contact.name">Nom complet</label></div>
  <div class="field"><input type="email" name="email" required /><label data-i18n="contact.email">Adresse courriel</label></div>
- <div class="field field--full"><textarea name="message" rows="4" required></textarea><label data-i18n="contact.msg">Votre projet</label></div>
- <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.send">Envoyer le message</button>
+ <div class="field"><input type="tel" name="phone" /><label data-i18n="contact.phone">Téléphone (optionnel)</label></div>
+ <div class="field"><input type="text" name="company" /><label data-i18n="contact.company">Entreprise (optionnel)</label></div>
+ <div class="field field--sel"><select name="type"><option value="" disabled selected data-i18n="contact.type">Type de projet</option><option>Site web</option><option>Application mobile</option><option>Plateforme SaaS</option><option>IA &amp; automatisation</option><option>Logiciel sur mesure</option><option data-i18n="contact.other">Autre</option></select></div>
+ <div class="field field--sel"><select name="budget"><option value="" disabled selected data-i18n="contact.budget">Budget estimé</option><option>2 500 – 5 000 $</option><option>5 000 – 15 000 $</option><option>15 000 – 40 000 $</option><option>&gt; 40 000 $</option><option data-i18n="contact.tbd">À discuter</option></select></div>
+ <div class="field field--full"><textarea name="message" rows="4" required></textarea><label data-i18n="contact.msg">Décrivez votre projet</label></div>
+ <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.send">Recevoir mon devis gratuit</button>
+ <a href="https://calendly.com/VOTRE-LIEN" target="_blank" rel="noopener" class="btn btn--ghost btn--full" id="bookCall" data-i18n="contact.call">Ou réserver un appel découverte</a>
  <p class="contact__status" id="contactStatus" role="status"></p>
  </form>
  <div class="contact__emails">

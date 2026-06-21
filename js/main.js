@@ -191,18 +191,20 @@
     });
   }
 
-  /* ---------- API Planevia (contact + newsletter) ----------
-     Les soumissions partent vers POST https://api.planevia.ca/api/contact
-     et sont consultables dans le super-admin Planevia → Messages. */
-  const PLANEVIA_API = "https://api.planevia.ca/api/contact";
+  /* ---------- API Planevia ----------
+     Devis      → POST /api/quotes   (consultable dans Planevia → /platform/quotes)
+     Newsletter → POST /api/contact  (boîte de réception Messages)
+     Repli automatique sur l'app mail si l'API est injoignable. */
+  const PLANEVIA_QUOTES = "https://api.planevia.ca/api/quotes";
+  const PLANEVIA_CONTACT = "https://api.planevia.ca/api/contact";
 
   function setStatus(el, state, msg) {
     if (!el) return;
     el.className = "contact__status is-" + state;
     el.textContent = msg;
   }
-  async function sendToPlanevia(payload) {
-    const res = await fetch(PLANEVIA_API, {
+  async function postJSON(url, payload) {
+    const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(payload),
@@ -212,35 +214,47 @@
     return json;
   }
 
-  /* Formulaire de contact */
+  /* Formulaire de devis → /api/quotes */
   const form = document.getElementById("contactForm");
   const status = document.getElementById("contactStatus");
   form && form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const en = document.documentElement.lang === "en";
     const data = new FormData(form);
+    const full = (data.get("name") || "").toString().trim();
+    const parts = full.split(/\s+/);
+    const firstName = parts.shift() || full || "Client";
+    const lastName = parts.join(" ") || "—";
+    const type = (data.get("type") || "").toString();
+    const budget = (data.get("budget") || "").toString();
+    let message = (data.get("message") || "").toString().trim();
+    const meta = [];
+    if (type) meta.push("Type: " + type);
+    if (budget) meta.push("Budget: " + budget);
+    meta.push("via novae-systems.ca");
+    message += (message ? "\n\n" : "") + "[" + meta.join(" · ") + "]";
     const payload = {
-      name: (data.get("name") || "").toString().trim(),
+      firstName, lastName,
       email: (data.get("email") || "").toString().trim(),
-      message: (data.get("message") || "").toString().trim(),
-      subject: "sales",
-      organizationName: "Lead via novae-systems.ca",
+      phone: (data.get("phone") || "").toString().trim() || null,
+      companyName: (data.get("company") || "").toString().trim() || null,
+      businessType: type || null,
+      message,
     };
     setStatus(status, "loading", en ? "Sending…" : "Envoi en cours…");
     try {
-      await sendToPlanevia(payload);
+      await postJSON(PLANEVIA_QUOTES, payload);
       form.reset();
-      setStatus(status, "ok", en ? "Message sent — thank you! We reply within 24h." : "Message envoyé — merci ! On vous répond sous 24 h.");
+      setStatus(status, "ok", en ? "Quote request sent — we reply within 24h. Thank you!" : "Demande de devis envoyée — réponse sous 24 h. Merci !");
     } catch (err) {
-      // Repli : ouvre l'app mail du visiteur
-      const subject = encodeURIComponent("Nouveau projet — " + payload.name);
-      const body = encodeURIComponent(payload.message + "\n\n— " + payload.name + " (" + payload.email + ")");
+      const subject = encodeURIComponent("Demande de devis — " + full);
+      const body = encodeURIComponent(message + "\n\n— " + full + " (" + payload.email + (payload.phone ? ", " + payload.phone : "") + ")");
       setStatus(status, "err", en ? "Network issue — opening your mail app…" : "Souci réseau — ouverture de votre app mail…");
       window.location.href = `mailto:contact@novae-systems.ca?subject=${subject}&body=${body}`;
     }
   });
 
-  /* Inscription newsletter */
+  /* Inscription newsletter → /api/contact */
   const news = document.getElementById("newsletterForm");
   const newsStatus = document.getElementById("newsletterStatus");
   news && news.addEventListener("submit", async (e) => {
@@ -249,7 +263,7 @@
     const email = (new FormData(news).get("email") || "").toString().trim();
     setStatus(newsStatus, "loading", en ? "Subscribing…" : "Inscription…");
     try {
-      await sendToPlanevia({
+      await postJSON(PLANEVIA_CONTACT, {
         name: "Abonne newsletter",
         email,
         message: "Souhaite s'inscrire a la newsletter via le site novae-systems.ca.",
